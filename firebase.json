@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "firestore": {
     "rules": "firestore.rules",
     "indexes": "firestore.indexes.json"
@@ -11,31 +10,25 @@
       "**/.*",
       "**/node_modules/**"
     ]
-=======
+  },
   "storage": {
     "rules": "storage.rules"
   },
   "functions": {
     "source": "functions"
->>>>>>> repoa/main
   },
   "emulators": {
     "auth": {
       "port": 9099
     },
-<<<<<<< HEAD
     "database": {
       "port": 9000
     },
     "hosting": {
       "port": 5000
     },
-    "pubsub": {
-      "port": 8085
-=======
     "functions": {
       "port": 5001
->>>>>>> repoa/main
     },
     "storage": {
       "port": 9199
