@@ -1,0 +1,29 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /SavedMaps/{projectID} {
+      allow read: if request.auth.uid != null;
+      allow update: if canCreateMap() &&
+      	isOwnerOnFile();
+      allow create: if canCreateMap();  
+      allow delete: if canDeleteMap();  
+      
+      function isSignedIn(){
+      	return (request.auth.uid != null)
+     	} 
+   		function isOwner(){
+        return (request.auth.uid == request.resource.data.uid)
+     	}
+      function canCreateMap() {
+          return isSignedIn() && isOwner();
+      }
+      function isOwnerOnFile(){
+          return (request.auth.uid == resource.data.uid)
+      }
+      function canDeleteMap(){
+          return isSignedIn() && isOwnerOnFile();
+      }
+    }
+  }
+ 
+}
