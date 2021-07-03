@@ -1,0 +1,89 @@
+// I wrote this function to update users but I wont use it again
+exports.updateUsers = functions.https.onRequest((req, res) => {
+    functions.logger.info("Upload user being updated hopefully", req, res);
+    let bytes = 1000000000
+    let uid = req.query.uid
+
+
+    functions.logger.info('user with this uid', uid);
+    var claims;
+    admin.auth().getUser(uid)
+        .then((user) =>     {
+            functions.logger.info(user)
+            claims = user.customClaims ? user.customClaims : {};
+            functions.logger.info('found claims', claims)
+            claims.BytesAvailable = bytes
+            functions.logger.info('altered claims', claims)
+            admin.auth().setCustomUserClaims(user.uid, claims)
+            .then(() => {
+                admin.auth().getUser(uid).then((newUser) => {
+                    functions.logger.info('live claims', newUser.customClaims);
+                    res.send('is done')
+                })
+            })
+        })
+})
+
+// // example functoin provided by firebase
+// exports.makeUppercase = functions.firestore.document('/messages/{documentId}')
+//     .onCreate((snap, context) => {
+//       // Grab the current value of what was written to Firestore.
+//       const original = snap.data().original;
+
+//       // Access the parameter `{documentId}` with `context.params`
+//       functions.logger.log('Uppercasing', context.params.documentId, original);
+      
+//       const uppercase = original.toUpperCase();
+      
+//       // You must return a Promise when performing asynchronous tasks inside a Functions such as
+//       // writing to Firestore.
+//       // Setting an 'uppercase' field in Firestore document returns a Promise.
+//       return snap.ref.set({uppercase}, {merge: true});
+//     });
+
+
+
+
+function updateTheoreticalUserClaims(user, bytes){
+    let claims = user.customClaims
+    functions.logger.info('found claims', claims)
+    claims.BytesAvailable = bytes
+    functions.logger.info('altered claims', claims)
+    return claims
+}
+
+async function setCustomClaims(user, claims){
+    await admin.auth().setCustomUserClaims(user.uid, claims);
+    return user
+}
+
+
+
+
+async function setUserByteSize(uid, bytes){
+    functions.logger.info('user with this uid', uid);
+    var claims;
+    admin.auth().getUser(uid)
+        .then((user) =>     {
+            claims = user.customClaims
+            functions.logger.info('found claims', claims)
+            claims.BytesAvailable = bytes
+            functions.logger.info('altered claims', claims)
+            admin.auth().setCustomUserClaims(user.uid, claims)
+            .then(() => {
+                admin.auth().getUser(uid).then((newUser) => {
+                    functions.logger.info('live claims', newUser.customClaims);
+                    return {response: "it worked"}
+                })
+            })
+        })
+
+    
+    }
+    
+
+
+async function getUser(uid){
+    let user = await admin.auth().getUser(uid);
+    return user
+}
