@@ -4,7 +4,7 @@ function init_arrowWidthSlider(){
     slider.type="range"
     slider.min="1";
     slider.max="300";
-    slider.value='1';
+    slider.value=defaultArrowWidth;
     slider.classList.add('slider');
 
     slider.addEventListener('change',() =>{

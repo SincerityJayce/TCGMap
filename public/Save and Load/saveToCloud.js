@@ -1,4 +1,4 @@
-
+var loaded = false;
 
 
 
@@ -9,37 +9,13 @@ function loadProject(prjoectId){
 
 
 
-function testclick(){
 
-    var request = new Request('https://us-central1-third-runway-317015.cloudfunctions.net/updateUsers?uid=sMRkzSTg62cKnwuGBDlFKFZXplw1&fileName=file&fileSize=1');
-    console.log(request);
-    fetch(request).then(function(response) {
-        console.log(response)})
-
-    // savedMaps.doc('K2L0ZL9eRz01JiC1Psgq').get().then(function(data){
-    //     console.log(data.data().json)
-    //     generateObjects(JSON.parse(data.data().json))
-    // })
-    
-}
-
-function loadFirestoredProject(project){
-    project.get().then(function(data){
+function loadFirestoredProject(projectRef){
+    projectRef.get().then(function(data){
         console.log(data.data().json)
         generateObjects(JSON.parse(data.data().json))
     })
 }
-
-
-
-var testbutton = make('button');
-testbutton.innerHTML = 'test';
-navlist.appendChild(testbutton);
-testbutton.addEventListener('click', testclick)
-var test;
-var loaded = false;
-
-
 
 function saveProjectToCloud(){
     console.log('saving to cloud')
@@ -73,7 +49,6 @@ function saveProjectToCloud(){
     }
 
     loaded ? updateMap() : creatMapSave();
-    console.log(test)
     loaded = true;
 }
 
@@ -108,11 +83,9 @@ function buildMapSave(doc){
     })
     storedImages.appendChild(map)
 }
+
 loadfilestab = document.getElementById('LoadFile');
 loadfilestab.addEventListener('click',function (){
     storedImages.innerHTML = 'brb with your saves...';
-    let x = 4
-    console.log(x)
     getMyMaps()
-    
 })
