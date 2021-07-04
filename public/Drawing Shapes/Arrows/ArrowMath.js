@@ -3,6 +3,7 @@ var arrowObj;
 var arrow = new Image();
 arrow.src = 'images/arrow.png';
 var arrowStart;
+var defaultArrowWidth = 100;
 
 
 
@@ -53,7 +54,7 @@ function drawArrowBetweenPoints(start, finish, context){
     let adjacent = finish.y-start.y;
     let deg = Math.atan2(opposite, adjacent);
     let height = Math.sqrt(opposite*opposite+adjacent*adjacent);
-    drawImageRot(start.x, start.y, 200/viewScale, height, deg, context);
+    drawImageRot(start.x, start.y, defaultArrowWidth/viewScale, height, deg, context);
 }
 
 

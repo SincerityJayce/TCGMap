@@ -1,8 +1,18 @@
 const storage = firebase.storage();
-const uploadProgress = document.getElementById('uploadProgress')
+
+function init_uploadProgressBar(){
+    const bar = make('progress');
+    bar.value = '0';
+    bar.min='0';
+    bar.max='100';
+    bar.id='uploadProgress';
+    bar.innerHTML='0%';
+    return bar;
+}
+const uploadProgressBar = init_uploadProgressBar()
 
 function onFilesRecieved(e){
-    e.target.files.forEach(uploadFile)
+    e.target.files.forEach(uploadFile);
 }
 
 function uploadFile(file){
