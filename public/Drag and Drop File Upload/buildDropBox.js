@@ -1,8 +1,7 @@
 function make(string){
     return document.createElement(string)
 }
-
-
+var inputElement;
 function init_uploadPanel(){
 
     const panel = make('div');
@@ -17,7 +16,7 @@ function init_uploadPanel(){
             dropZoneText.classList.add("drop-zone__prompt");
             fileDropZone.appendChild(dropZoneText);
 
-            const inputElement = make('input');
+    inputElement = make('input');
             inputElement.type="file";
             inputElement.name="myfile";
             inputElement.classList.add('drop-zone__input');
@@ -44,21 +43,26 @@ function init_uploadPanel(){
     }
 
     function applyEvents_fileDrop(){
-        fileDropZone.addEventListener("drop", (e) => {
-            e.preventDefault();
+        fileDropZone.addEventListener("drop", (function(e){
+            console.log(e.dataTransfer.files);
             if (e.dataTransfer.files.length) {
             onFileDrop(e)
             }
             fileDropZone.classList.remove("drop-zone--over");
-        });
+            e.preventDefault();
+        }));
 
         function onFileDrop(e){
+            console.log(e);
             inputElement.files = e.dataTransfer.files;
+            console.log(inputElement.files);
+            onFilesRecieved();
         }
     
-        inputElement.addEventListener("change", (e) => {
+        inputElement.addEventListener("change", function(e){
+            console.log('change', e)
             if (inputElement.files.length) {
-            onFileRecieved(e)
+                onFilesRecieved()
             }
         });
     }
@@ -87,6 +91,7 @@ function init_uploadPanel(){
 
     return panel
 }
+
 const uploadPanel = init_uploadPanel()
 
 

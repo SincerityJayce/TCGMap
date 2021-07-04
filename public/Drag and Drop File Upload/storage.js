@@ -11,8 +11,8 @@ function init_uploadProgressBar(){
 }
 const uploadProgressBar = init_uploadProgressBar()
 
-function onFilesRecieved(e){
-    e.target.files.forEach(uploadFile);
+function onFilesRecieved(){
+    inputElement.files.forEach(uploadFile);
 }
 
 function uploadFile(file){
@@ -20,6 +20,7 @@ function uploadFile(file){
 
     //upload file
     let task = storageRef.put(file)
+    console.log('uploading', file)
 
     // update progress bar
     task.on('state_changed',
@@ -28,6 +29,7 @@ function uploadFile(file){
         function progress (snapshot){
             var percentage = (snapshot.bytesTransferred / snapshot.totalBytes *100);
             uploadProgress.value = percentage;
+            console.log('uploading', percentage)
         }, // << don't forget the comma
     
         function error (err){
