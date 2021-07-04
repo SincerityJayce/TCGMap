@@ -12,7 +12,7 @@ function init_uploadProgressBar(){
 const uploadProgressBar = init_uploadProgressBar()
 
 function onFilesRecieved(){
-    inputElement.files.forEach(uploadFile);
+    uploadFile(inputElement.files[0]);
 }
 
 function uploadFile(file){
@@ -28,12 +28,12 @@ function uploadFile(file){
         //the names of these funtions matter 
         function progress (snapshot){
             var percentage = (snapshot.bytesTransferred / snapshot.totalBytes *100);
-            uploadProgress.value = percentage;
+            uploadProgressBar.value = percentage;
             console.log('uploading', percentage)
         }, // << don't forget the comma
     
         function error (err){
-
+            console.log(err);
         },
 
         function complete(){

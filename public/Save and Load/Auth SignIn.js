@@ -19,11 +19,16 @@ var profilePic = (() => {
     return pp
 })()
 var signInButton;
-
+alert('s')
 function signInOrOut(){
     function signInWithGoogle(){
         const provider = new firebase.auth.GoogleAuthProvider();
         auth.signInWithPopup(provider)
+        .then((log) => {
+            console.log('j',log)
+        }).catch((err) =>{
+            console.error('k',err);
+        })
     }
 
 
