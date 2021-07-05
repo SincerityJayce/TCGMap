@@ -1,0 +1,194 @@
+[1m[36mi  emulators:[39m[22m Starting emulators: auth, functions, firestore, hosting, storage
+[1m[33m!  functions:[39m[22m The following emulators are not running, calls to these services from the Functions emulator will affect production: [1mdatabase, pubsub[22m
+[1m[32m+  functions:[39m[22m Using node@14 from host.
+[1m[36mi  firestore:[39m[22m Firestore Emulator logging to [1mfirestore-debug.log[22m
+[1m[36mi  hosting:[39m[22m Serving hosting files from: [1mpublic[22m
+[1m[32m+  hosting:[39m[22m Local server: [4m[1mhttp://localhost:5000[22m[24m
+[1m[33m!  ui:[39m[22m Emulator UI unable to start on port 4000, starting on 4013 instead.
+[1m[36mi  ui:[39m[22m Emulator UI logging to [1mui-debug.log[22m
+[1m[36mi  functions:[39m[22m Watching "C:\Users\Roy\Desktop\Current - Copy\functions" for Cloud Functions...
+[1m[32m+  functions[us-central1-affirmUpload]:[39m[22m [1mhttp[22m function initialized (http://localhost:5001/third-runway-317015/us-central1/affirmUpload).
+[1m[32m+  functions[us-central1-onUserSignUp]:[39m[22m [1mauth[22m function initialized.
+[1m[32m+  functions[us-central1-logUserInfo]:[39m[22m [1mhttp[22m function initialized (http://localhost:5001/third-runway-317015/us-central1/logUserInfo).
+
+┌─────────────────────────────────────────────────────────────┐
+│ [32m✔[39m  [1mAll emulators ready! It is now safe to connect your app.[22m │
+│ [36mi[39m  View Emulator UI at [4m[1mhttp://localhost:4013[22m[24m                │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬─────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Authentication │ localhost:9099 │ [4m[1mhttp://localhost:4013/auth[22m[24m      │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Functions      │ localhost:5001 │ [4m[1mhttp://localhost:4013/functions[22m[24m │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Firestore      │ localhost:8080 │ [4m[1mhttp://localhost:4013/firestore[22m[24m │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Hosting        │ localhost:5000 │ [90mn/a[39m                             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Storage        │ localhost:9199 │ [4m[1mhttp://localhost:4013/storage[22m[24m   │
+└────────────────┴────────────────┴─────────────────────────────────┘
+[90m  Emulator Hub running at [39mlocalhost:4400
+[90m  Other reserved ports:[39m 4500
+
+Issues? Report them at [4m[1mhttps://github.com/firebase/firebase-tools/issues[22m[24m and attach the *-debug.log files.
+ 
+[1m[36mi  functions:[39m[22m Beginning execution of "us-central1-affirmUpload"
+[90m> [39m {"name":"push.txt","size":"260","uid":"sMRkzSTg62cKnwuGBDlFKFZXplw1","severity":"INFO","message":"Upload Being Affirmed"}
+[90m> [39m sMRkzSTg62cKnwuGBDlFKFZXplw1 undefined undefined
+[1m[36mi  functions:[39m[22m Finished "us-central1-affirmUpload" in ~1s
+[90m> [39m (node:8076) UnhandledPromiseRejectionWarning: Error: There is no user record corresponding to the provided identifier.
+[90m> [39m     at FirebaseAuthError.FirebaseError [as constructor] (C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\utils\error.js:44:28)
+[90m> [39m     at FirebaseAuthError.PrefixedFirebaseError [as constructor] (C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\utils\error.js:90:28)
+[90m> [39m     at new FirebaseAuthError (C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\utils\error.js:149:16)
+[90m> [39m     at C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\auth\auth-api-request.js:560:15
+[90m> [39m     at C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\auth\auth-api-request.js:1557:13
+[90m> [39m     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+[90m> [39m     at async checkStorageAllowance (C:\Users\Roy\Desktop\Current - Copy\functions\index.js:36:16)
+[90m> [39m (Use `node --trace-warnings ...` to show where the warning was created)
+[90m> [39m (node:8076) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 1)
+[90m> [39m (node:8076) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+[1m[36mi  hosting:[39m[22m 127.0.0.1 - - [05/Jul/2021:11:07:45 +0000] "GET /__/firebase/init.js?useEmulator=true HTTP/1.1" 200 - "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36 Edg/91.0.864.59"
+[1m[36mi  hosting:[39m[22m 127.0.0.1 - - [05/Jul/2021:11:07:45 +0000] "GET /FFdecks/api%20test.js HTTP/1.1" 200 307 "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36 Edg/91.0.864.59"
+[1m[36mi  hosting:[39m[22m 127.0.0.1 - - [05/Jul/2021:11:07:45 +0000] "GET /Drawing%20Shapes/Object%20Definitions.js HTTP/1.1" 200 13383 "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36 Edg/91.0.864.59"
+[1m[36mi  hosting:[39m[22m 127.0.0.1 - - [05/Jul/2021:11:07:45 +0000] "GET /Drag%20and%20Drop%20File%20Upload/storage.js HTTP/1.1" 200 2059 "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36 Edg/91.0.864.59"
+[1m[36mi  hosting:[39m[22m 127.0.0.1 - - [05/Jul/2021:11:07:45 +0000] "GET /Save%20and%20Load/Auth%20SignIn.js HTTP/1.1" 200 2120 "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36 Edg/91.0.864.59"
+[1m[36mi  hosting:[39m[22m 127.0.0.1 - - [05/Jul/2021:11:07:45 +0000] "GET /Drag%20and%20Drop%20File%20Upload/buildDropBox.js HTTP/1.1" 200 2973 "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36 Edg/91.0.864.59"
+[1m[36mi  hosting:[39m[22m 127.0.0.1 - - [05/Jul/2021:11:43:06 +0000] "GET / HTTP/1.1" 200 7560 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36 Edg/91.0.864.59"
+[1m[36mi  hosting:[39m[22m 127.0.0.1 - - [05/Jul/2021:11:43:06 +0000] "GET /__/firebase/init.js?useEmulator=true HTTP/1.1" 200 - "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36 Edg/91.0.864.59"
+[1m[36mi  hosting:[39m[22m 127.0.0.1 - - [05/Jul/2021:11:43:06 +0000] "GET /Drag%20and%20Drop%20File%20Upload/storage.js HTTP/1.1" 200 2059 "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36 Edg/91.0.864.59"
+[1m[36mi  hosting:[39m[22m 127.0.0.1 - - [05/Jul/2021:11:43:06 +0000] "GET /Drag%20and%20Drop%20File%20Upload/buildDropBox.js HTTP/1.1" 200 2973 "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36 Edg/91.0.864.59"
+[1m[36mi  storage:[39m[22m Change detected, updating rules for Cloud Storage...
+[1m[36mi  hosting:[39m[22m 127.0.0.1 - - [05/Jul/2021:12:06:59 +0000] "GET / HTTP/1.1" 200 7560 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36 Edg/91.0.864.59"
+[1m[36mi  hosting:[39m[22m 127.0.0.1 - - [05/Jul/2021:12:06:59 +0000] "GET /__/firebase/init.js?useEmulator=true HTTP/1.1" 200 - "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36 Edg/91.0.864.59"
+[1m[36mi  hosting:[39m[22m 127.0.0.1 - - [05/Jul/2021:12:06:59 +0000] "GET /Drawing%20Shapes/Arrows/arrowWidthSlider.js HTTP/1.1" 200 473 "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36 Edg/91.0.864.59"
+[1m[36mi  hosting:[39m[22m 127.0.0.1 - - [05/Jul/2021:12:06:59 +0000] "GET /Save%20and%20Load/saveToCloud.js HTTP/1.1" 200 2463 "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36 Edg/91.0.864.59"
+[1m[36mi  hosting:[39m[22m 127.0.0.1 - - [05/Jul/2021:12:06:59 +0000] "GET /Drag%20and%20Drop%20File%20Upload/storage.js HTTP/1.1" 200 2059 "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36 Edg/91.0.864.59"
+[1m[36mi  hosting:[39m[22m 127.0.0.1 - - [05/Jul/2021:12:06:59 +0000] "GET /test.js HTTP/1.1" 200 555 "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36 Edg/91.0.864.59"
+[1m[36mi  hosting:[39m[22m 127.0.0.1 - - [05/Jul/2021:12:07:19 +0000] "GET /null HTTP/1.1" 404 1808 "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36 Edg/91.0.864.59"
+[1m[36mi  functions:[39m[22m Beginning execution of "us-central1-onUserSignUp"
+[90m> [39m {"uid":"CdQ0oWxvRtZjjKwxH1OSxb1FwB3w","email":"mountain.chicken.936@example.com","emailVerified":true,"displayName":"Mountain Chicken","photoURL":null,"phoneNumber":null,"disabled":false,"passwordHash":null,"passwordSalt":null,"tokensValidAfterTime":null,"metadata":{"creationTime":"1625486839367","lastSignInTime":"1625486839367"},"customClaims":{},"providerData":[{"providerId":"google.com","rawId":"9715694272111081674068451984170920966431","federatedId":"9715694272111081674068451984170920966431","displayName":"Mountain Chicken","email":"mountain.chicken.936@example.com","screenName":"chicken_mountain"}]}
+[90m> [39m {"severity":"INFO","message":"found claims"}
+[90m> [39m {"BytesAvailable":1000000000,"severity":"INFO","message":"altered claims"}
+[90m> [39m {"severity":"WARNING","message":"Function returned undefined, expected Promise or value"}
+[1m[36mi  functions:[39m[22m Finished "us-central1-onUserSignUp" in ~1s
+[90m> [39m {"BytesAvailable":1000000000,"severity":"INFO","message":"new user's customclaims applied"}
+[1m[36mi  functions:[39m[22m Beginning execution of "us-central1-affirmUpload"
+[90m> [39m {"name":"emuStart.txt","size":"12398","uid":"CdQ0oWxvRtZjjKwxH1OSxb1FwB3w","severity":"INFO","message":"Upload Being Affirmed"}
+[90m> [39m CdQ0oWxvRtZjjKwxH1OSxb1FwB3w undefined undefined
+[1m[36mi  functions:[39m[22m Finished "us-central1-affirmUpload" in ~1s
+[1m[36mi  hosting:[39m[22m 127.0.0.1 - - [05/Jul/2021:12:08:57 +0000] "GET /__/firebase/8.6.8/firebase-functions.js.map HTTP/1.1" 200 56125 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36 Edg/91.0.864.59"
+[1m[36mi  hosting:[39m[22m 127.0.0.1 - - [05/Jul/2021:12:08:57 +0000] "GET /__/firebase/8.6.8/firebase-messaging.js.map HTTP/1.1" 200 179391 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36 Edg/91.0.864.59"
+[1m[36mi  hosting:[39m[22m 127.0.0.1 - - [05/Jul/2021:12:08:57 +0000] "GET /__/firebase/8.6.8/firebase-app.js.map HTTP/1.1" 200 114738 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36 Edg/91.0.864.59"
+[1m[36mi  hosting:[39m[22m 127.0.0.1 - - [05/Jul/2021:12:08:58 +0000] "GET /__/firebase/8.6.8/firebase-storage.js.map HTTP/1.1" 200 231536 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36 Edg/91.0.864.59"
+[1m[36mi  hosting:[39m[22m 127.0.0.1 - - [05/Jul/2021:12:08:58 +0000] "GET /__/firebase/8.6.8/firebase-database.js.map HTTP/1.1" 200 1018611 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36 Edg/91.0.864.59"
+[1m[36mi  hosting:[39m[22m 127.0.0.1 - - [05/Jul/2021:12:08:58 +0000] "GET /__/firebase/8.6.8/firebase-analytics.js.map HTTP/1.1" 200 178968 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36 Edg/91.0.864.59"
+[1m[36mi  hosting:[39m[22m 127.0.0.1 - - [05/Jul/2021:12:08:58 +0000] "GET /__/firebase/8.6.8/firebase-firestore.js.map HTTP/1.1" 200 2111276 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36 Edg/91.0.864.59"
+[1m[36mi  hosting:[39m[22m 127.0.0.1 - - [05/Jul/2021:12:08:58 +0000] "GET /__/firebase/8.6.8/firebase-remote-config.js.map HTTP/1.1" 200 175801 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36 Edg/91.0.864.59"
+[1m[36mi  hosting:[39m[22m 127.0.0.1 - - [05/Jul/2021:12:08:58 +0000] "GET /__/firebase/8.6.8/firebase-performance.js.map HTTP/1.1" 200 202333 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36 Edg/91.0.864.59"
+[1m[36mi  hosting:[39m[22m 127.0.0.1 - - [05/Jul/2021:12:08:59 +0000] "GET /__/firebase/8.6.8/firebase-auth.js.map HTTP/1.1" 200 2397191 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36 Edg/91.0.864.59"
+[1m[36mi  functions:[39m[22m Beginning execution of "us-central1-affirmUpload"
+[90m> [39m {"name":"emuStart.txt","size":"15598","uid":"sMRkzSTg62cKnwuGBDlFKFZXplw1","severity":"INFO","message":"Upload Being Affirmed"}
+[90m> [39m sMRkzSTg62cKnwuGBDlFKFZXplw1 undefined undefined
+[1m[36mi  functions:[39m[22m Finished "us-central1-affirmUpload" in ~1s
+[90m> [39m (node:8076) UnhandledPromiseRejectionWarning: Error: There is no user record corresponding to the provided identifier.
+[90m> [39m     at FirebaseAuthError.FirebaseError [as constructor] (C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\utils\error.js:44:28)
+[90m> [39m     at FirebaseAuthError.PrefixedFirebaseError [as constructor] (C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\utils\error.js:90:28)
+[90m> [39m     at new FirebaseAuthError (C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\utils\error.js:149:16)
+[90m> [39m     at C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\auth\auth-api-request.js:560:15
+[90m> [39m     at C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\auth\auth-api-request.js:1557:13
+[90m> [39m     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+[90m> [39m     at async checkStorageAllowance (C:\Users\Roy\Desktop\Current - Copy\functions\index.js:36:16)
+[90m> [39m (node:8076) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 2)
+[1m[36mi  functions:[39m[22m Beginning execution of "us-central1-affirmUpload"
+[90m> [39m {"name":"emuStart.txt","size":"17495","uid":"sMRkzSTg62cKnwuGBDlFKFZXplw1","severity":"INFO","message":"Upload Being Affirmed"}
+[90m> [39m sMRkzSTg62cKnwuGBDlFKFZXplw1 undefined undefined
+[1m[36mi  functions:[39m[22m Finished "us-central1-affirmUpload" in ~1s
+[90m> [39m (node:8076) UnhandledPromiseRejectionWarning: Error: There is no user record corresponding to the provided identifier.
+[90m> [39m     at FirebaseAuthError.FirebaseError [as constructor] (C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\utils\error.js:44:28)
+[90m> [39m     at FirebaseAuthError.PrefixedFirebaseError [as constructor] (C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\utils\error.js:90:28)
+[90m> [39m     at new FirebaseAuthError (C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\utils\error.js:149:16)
+[90m> [39m     at C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\auth\auth-api-request.js:560:15
+[90m> [39m     at C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\auth\auth-api-request.js:1557:13
+[90m> [39m     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+[90m> [39m     at async checkStorageAllowance (C:\Users\Roy\Desktop\Current - Copy\functions\index.js:36:16)
+[90m> [39m (node:8076) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 3)
+[1m[36mi  functions:[39m[22m Beginning execution of "us-central1-affirmUpload"
+[90m> [39m {"name":"emuStart.txt","size":"19392","uid":"sMRkzSTg62cKnwuGBDlFKFZXplw1","severity":"INFO","message":"Upload Being Affirmed"}
+[90m> [39m sMRkzSTg62cKnwuGBDlFKFZXplw1 undefined undefined
+[1m[36mi  functions:[39m[22m Finished "us-central1-affirmUpload" in ~1s
+[90m> [39m (node:8076) UnhandledPromiseRejectionWarning: Error: There is no user record corresponding to the provided identifier.
+[90m> [39m     at FirebaseAuthError.FirebaseError [as constructor] (C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\utils\error.js:44:28)
+[90m> [39m     at FirebaseAuthError.PrefixedFirebaseError [as constructor] (C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\utils\error.js:90:28)
+[90m> [39m     at new FirebaseAuthError (C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\utils\error.js:149:16)
+[90m> [39m     at C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\auth\auth-api-request.js:560:15
+[90m> [39m     at C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\auth\auth-api-request.js:1557:13
+[90m> [39m     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+[90m> [39m     at async checkStorageAllowance (C:\Users\Roy\Desktop\Current - Copy\functions\index.js:36:16)
+[90m> [39m (node:8076) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 4)
+[1m[36mi  functions:[39m[22m Beginning execution of "us-central1-affirmUpload"
+[90m> [39m {"name":"emuStart.txt","size":"21289","uid":"sMRkzSTg62cKnwuGBDlFKFZXplw1","severity":"INFO","message":"Upload Being Affirmed"}
+[90m> [39m sMRkzSTg62cKnwuGBDlFKFZXplw1 undefined undefined
+[1m[36mi  functions:[39m[22m Finished "us-central1-affirmUpload" in ~1s
+[90m> [39m (node:8076) UnhandledPromiseRejectionWarning: Error: There is no user record corresponding to the provided identifier.
+[90m> [39m     at FirebaseAuthError.FirebaseError [as constructor] (C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\utils\error.js:44:28)
+[90m> [39m     at FirebaseAuthError.PrefixedFirebaseError [as constructor] (C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\utils\error.js:90:28)
+[90m> [39m     at new FirebaseAuthError (C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\utils\error.js:149:16)
+[90m> [39m     at C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\auth\auth-api-request.js:560:15
+[90m> [39m     at C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\auth\auth-api-request.js:1557:13
+[90m> [39m     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+[90m> [39m     at async checkStorageAllowance (C:\Users\Roy\Desktop\Current - Copy\functions\index.js:36:16)
+[90m> [39m (node:8076) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 5)
+[1m[36mi  functions:[39m[22m Beginning execution of "us-central1-affirmUpload"
+[90m> [39m {"name":"emuStart.txt","size":"23186","uid":"sMRkzSTg62cKnwuGBDlFKFZXplw1","severity":"INFO","message":"Upload Being Affirmed"}
+[90m> [39m sMRkzSTg62cKnwuGBDlFKFZXplw1 undefined undefined
+[1m[36mi  functions:[39m[22m Finished "us-central1-affirmUpload" in ~1s
+[90m> [39m (node:8076) UnhandledPromiseRejectionWarning: Error: There is no user record corresponding to the provided identifier.
+[90m> [39m     at FirebaseAuthError.FirebaseError [as constructor] (C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\utils\error.js:44:28)
+[90m> [39m     at FirebaseAuthError.PrefixedFirebaseError [as constructor] (C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\utils\error.js:90:28)
+[90m> [39m     at new FirebaseAuthError (C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\utils\error.js:149:16)
+[90m> [39m     at C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\auth\auth-api-request.js:560:15
+[90m> [39m     at C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\auth\auth-api-request.js:1557:13
+[90m> [39m     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+[90m> [39m     at async checkStorageAllowance (C:\Users\Roy\Desktop\Current - Copy\functions\index.js:36:16)
+[90m> [39m (node:8076) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 6)
+[1m[36mi  functions:[39m[22m Beginning execution of "us-central1-affirmUpload"
+[90m> [39m {"name":"emuStart.txt","size":"25083","uid":"sMRkzSTg62cKnwuGBDlFKFZXplw1","severity":"INFO","message":"Upload Being Affirmed"}
+[90m> [39m sMRkzSTg62cKnwuGBDlFKFZXplw1 undefined undefined
+[1m[36mi  functions:[39m[22m Finished "us-central1-affirmUpload" in ~1s
+[90m> [39m (node:8076) UnhandledPromiseRejectionWarning: Error: There is no user record corresponding to the provided identifier.
+[90m> [39m     at FirebaseAuthError.FirebaseError [as constructor] (C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\utils\error.js:44:28)
+[90m> [39m     at FirebaseAuthError.PrefixedFirebaseError [as constructor] (C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\utils\error.js:90:28)
+[90m> [39m     at new FirebaseAuthError (C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\utils\error.js:149:16)
+[90m> [39m     at C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\auth\auth-api-request.js:560:15
+[90m> [39m     at C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\auth\auth-api-request.js:1557:13
+[90m> [39m     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+[90m> [39m     at async checkStorageAllowance (C:\Users\Roy\Desktop\Current - Copy\functions\index.js:36:16)
+[90m> [39m (node:8076) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 7)
+[1m[36mi  functions:[39m[22m Beginning execution of "us-central1-affirmUpload"
+[90m> [39m {"name":"emuStart.txt","size":"26980","uid":"sMRkzSTg62cKnwuGBDlFKFZXplw1","severity":"INFO","message":"Upload Being Affirmed"}
+[90m> [39m sMRkzSTg62cKnwuGBDlFKFZXplw1 undefined undefined
+[1m[36mi  functions:[39m[22m Finished "us-central1-affirmUpload" in ~1s
+[90m> [39m (node:8076) UnhandledPromiseRejectionWarning: Error: There is no user record corresponding to the provided identifier.
+[90m> [39m     at FirebaseAuthError.FirebaseError [as constructor] (C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\utils\error.js:44:28)
+[90m> [39m     at FirebaseAuthError.PrefixedFirebaseError [as constructor] (C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\utils\error.js:90:28)
+[90m> [39m     at new FirebaseAuthError (C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\utils\error.js:149:16)
+[90m> [39m     at C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\auth\auth-api-request.js:560:15
+[90m> [39m     at C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\auth\auth-api-request.js:1557:13
+[90m> [39m     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+[90m> [39m     at async checkStorageAllowance (C:\Users\Roy\Desktop\Current - Copy\functions\index.js:36:16)
+[90m> [39m (node:8076) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 8)
+[1m[36mi  functions:[39m[22m Beginning execution of "us-central1-affirmUpload"
+[90m> [39m {"name":"emuStart.txt","size":"28877","uid":"sMRkzSTg62cKnwuGBDlFKFZXplw1","severity":"INFO","message":"Upload Being Affirmed"}
+[90m> [39m sMRkzSTg62cKnwuGBDlFKFZXplw1 undefined undefined
+[1m[36mi  functions:[39m[22m Finished "us-central1-affirmUpload" in ~1s
+[90m> [39m (node:8076) UnhandledPromiseRejectionWarning: Error: There is no user record corresponding to the provided identifier.
+[90m> [39m     at FirebaseAuthError.FirebaseError [as constructor] (C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\utils\error.js:44:28)
+[90m> [39m     at FirebaseAuthError.PrefixedFirebaseError [as constructor] (C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\utils\error.js:90:28)
+[90m> [39m     at new FirebaseAuthError (C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\utils\error.js:149:16)
+[90m> [39m     at C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\auth\auth-api-request.js:560:15
+[90m> [39m     at C:\Users\Roy\Desktop\Current - Copy\functions\node_modules\firebase-admin\lib\auth\auth-api-request.js:1557:13
+[90m> [39m     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+[90m> [39m     at async checkStorageAllowance (C:\Users\Roy\Desktop\Current - Copy\functions\index.js:36:16)
+[90m> [39m (node:8076) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 9)

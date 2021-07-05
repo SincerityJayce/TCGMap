@@ -1,10 +1,10 @@
 const storage = firebase.storage();
 
 function buildFetchURL(funcName, params){
-    let url = "https://us-central1-third-runway-317015.cloudfunctions.net/"
-    let emUrl = "http://localhost:5001/third-runway-317015/us-central1/"
+    // let url = "https://us-central1-third-runway-317015.cloudfunctions.net/" //live
+    let url = "http://localhost:5001/third-runway-317015/us-central1/" //emulator
 
-    return (url + funcName + new URLSearchParams(params))
+    return (url + funcName + "?" + new URLSearchParams(params))
 }
 
 function init_uploadProgressBar(){
@@ -18,23 +18,10 @@ function init_uploadProgressBar(){
 }
 const uploadProgressBar = init_uploadProgressBar()
 
-let j = new URLSearchParams({
-    
-        fileName:'j.png',
-        fileSize:4000,
-        uid:'asdfhakjdh5kth'
-    
-})
-console.log('this is j', j.toString())
-
 function onFilesRecieved(){
-    async function requestStorageSpace(f){
-        let fetchParams = {
-            fileName:f.name,
-            fileSize:f.size,
-            uid:auth.currentUser.uid
-        }
-        let fetchThis = buildFetchURL('affirmUpload', fetchParams);
+    async function requestStorageSpace(params){
+
+        let fetchThis = buildFetchURL('affirmUpload', params);
         console.log(fetchThis)
 
         let approval = await fetch(new Request(fetchThis, {mode:'no-cors'}));
@@ -47,11 +34,14 @@ function onFilesRecieved(){
     console.log('input files', inputElement.files);
 
     for(var i =0; i < inputElement.files.length; i++){
-        console.log(i)
+        let thefile = inputElement.files[i]
 
-        requestStorageSpace(inputElement.files[i])
+        let {name, size}= thefile
+        let fetchParams = {name, size, uid:auth.currentUser.uid}
+
+        requestStorageSpace(fetchParams)
         .then(() =>{
-            uploadFile(inputElement.files[i]);
+            uploadFile(thefile);
         })
         .catch((err) => console.log(err));
     }
@@ -59,7 +49,7 @@ function onFilesRecieved(){
 }
 
 function uploadFile(file){
-    let storageRef = storage.ref("stored_videos/" + file.name);
+    let storageRef = storage.ref("UserFiles/" + auth.currentUser.uid + "/Public/" + file.name);
 
     //upload file
     let task = storageRef.put(file)
