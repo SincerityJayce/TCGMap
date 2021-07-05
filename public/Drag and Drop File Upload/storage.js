@@ -1,5 +1,12 @@
 const storage = firebase.storage();
 
+function buildFetchURL(funcName, params){
+    let url = "https://us-central1-third-runway-317015.cloudfunctions.net/"
+    let emUrl = "http://localhost:5001/third-runway-317015/us-central1/"
+
+    return (url + funcName + new URLSearchParams(params))
+}
+
 function init_uploadProgressBar(){
     const bar = make('progress');
     bar.value = '0';
@@ -11,8 +18,44 @@ function init_uploadProgressBar(){
 }
 const uploadProgressBar = init_uploadProgressBar()
 
+let j = new URLSearchParams({
+    
+        fileName:'j.png',
+        fileSize:4000,
+        uid:'asdfhakjdh5kth'
+    
+})
+console.log('this is j', j.toString())
+
 function onFilesRecieved(){
-    uploadFile(inputElement.files[0]);
+    async function requestStorageSpace(f){
+        let fetchParams = {
+            fileName:f.name,
+            fileSize:f.size,
+            uid:auth.currentUser.uid
+        }
+        let fetchThis = buildFetchURL('affirmUpload', fetchParams);
+        console.log(fetchThis)
+
+        let approval = await fetch(new Request(fetchThis, {mode:'no-cors'}));
+        return approval;
+    }
+
+
+
+
+    console.log('input files', inputElement.files);
+
+    for(var i =0; i < inputElement.files.length; i++){
+        console.log(i)
+
+        requestStorageSpace(inputElement.files[i])
+        .then(() =>{
+            uploadFile(inputElement.files[i]);
+        })
+        .catch((err) => console.log(err));
+    }
+    console.log('all uploads completed')
 }
 
 function uploadFile(file){

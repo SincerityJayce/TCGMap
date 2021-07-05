@@ -20,6 +20,7 @@ const serverVariables = {
 
 
 
+
 async function allowFileUpload(user, fileName, fileSize){
     functions.logger.info('userRequestingToUpload', user)
     claims = user.customClaims ? user.customClaims : {};
@@ -31,6 +32,7 @@ async function allowFileUpload(user, fileName, fileSize){
 }
 
 async function checkStorageAllowance(uid, fileName, fileSize){
+    console.log(uid, fileName, fileSize)
     let user = await admin.auth().getUser(uid);
 
     if (fileSize < user.customClaims.BytesAvailable){
@@ -45,10 +47,11 @@ async function checkStorageAllowance(uid, fileName, fileSize){
 
 exports.affirmUpload = functions.https.onRequest((request, response) => {
 
-  functions.logger.info("Upload Being Affirmed", request);
-  let {uid, fileName, fileSize} = request.query;
-  let res = checkStorageAllowance(uid, fileName, fileSize)
 //   cors()(request, response, () => {
+    functions.logger.info("Upload Being Affirmed", request.query);
+
+    let {uid, fileName, fileSize} = request.query;
+    let res = checkStorageAllowance(uid, fileName, fileSize)
     response.json(res)
 //   });
   

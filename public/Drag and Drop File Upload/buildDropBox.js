@@ -94,7 +94,7 @@ function init_uploadPanel(){
 
 const uploadPanel = init_uploadPanel()
 
-document.body.appendChild(panel);
+document.body.appendChild(uploadPanel);
 
 
 

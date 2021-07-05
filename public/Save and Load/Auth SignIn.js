@@ -19,7 +19,6 @@ var profilePic = (() => {
     return pp
 })()
 var signInButton;
-alert('s')
 function signInOrOut(){
     function signInWithGoogle(){
         const provider = new firebase.auth.GoogleAuthProvider();
