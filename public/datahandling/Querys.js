@@ -58,3 +58,12 @@ return notFullScreen
 function prependChildToElement(child, element){
     element.insertBefore(child, element.firstChild);
 }
+
+
+function selectElementContents(el) {
+    let range = document.createRange();
+    range.selectNodeContents(el);
+    let sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+}

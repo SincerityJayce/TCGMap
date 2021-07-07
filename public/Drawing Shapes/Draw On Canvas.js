@@ -1,7 +1,7 @@
 const canvas = document.getElementById('canvas');
 const container = document.getElementById('container');
 const display = document.getElementById('float over');
-const storedImages = document.getElementById('storedImages');
+// const storedImages = document.getElementById('storedImages');
 var c = canvas.getContext('2d');
 var cDisplay = display.getContext('2d');
 var canvasAreaW = undefined;

@@ -1,5 +1,22 @@
 const textBoxShelf = document.getElementById('Text Box Shelf');
 
+function init_TextBoxes(){
+    new NavElement({Title:'Text Boxes'})
+
+
+
+
+
+
+
+
+
+
+
+}
+init_TextBoxes()
+
+
 function buildTextBoxToolImage(path){
     let img = document.createElement('img');
     img.src=path;
@@ -10,8 +27,8 @@ function buildTextBoxToolImage(path){
 
     styleToolImage(img);
 
-    textBoxShelf.appendChild(img);
-    storedImagesTools.push(img);
+    navTabs['Text Boxes'].List.appendChild(img);
+    listOfAllTools.push(img);
     img.addEventListener('mousedown', selectActiveTool); //event: Select Tool on tool Clicked
 }
 
@@ -44,11 +61,4 @@ function  startEditingTextBox(s){
 
 
 
-function selectElementContents(el) {
-    let range = document.createRange();
-    range.selectNodeContents(el);
-    let sel = window.getSelection();
-    sel.removeAllRanges();
-    sel.addRange(range);
-}
 

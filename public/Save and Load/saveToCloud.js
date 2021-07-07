@@ -81,11 +81,11 @@ function buildMapSave(doc){
         generateObjects(JSON.parse(mapJSON));
         loaded=true;
     })
-    storedImages.appendChild(map)
+    navTabs["My Maps"].List.appendChild(map)
 }
 
-loadfilestab = document.getElementById('LoadFile');
-loadfilestab.addEventListener('click',function (){
-    storedImages.innerHTML = 'brb with your saves...';
+// loadfilestab = document.getElementById('LoadFile');
+navTabs["My Maps"].Title.addEventListener('click',function (){
+    navTabs["My Maps"].List.innerHTML = 'brb with your saves...';
     getMyMaps()
 })

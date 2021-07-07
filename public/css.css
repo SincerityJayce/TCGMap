@@ -154,19 +154,11 @@ nav ul ul{
     transition-duration: 1s;
     
 }
-nav ul .local-show.show{
-    display: block;
-    
-}
-nav ul .youtube-show.show3{
+
+nav ul .openTab ul{
     display: block;
 }
-nav ul .box-show.show1{
-    display: block;
-}
-nav ul .ffdecks-show.show2{
-    display: block;
-}
+
 
 nav ul ul li{
     line-height: 42px;
@@ -197,8 +189,11 @@ nav ul li a i{
     font-size: 22px;
     transition: transform 0.4s;
 }
-nav ul li a i.rotate{
+nav ul li a.openTab i{
     transform: translateY(-50%) rotate(-180deg);
+}
+nav ul li a.openTab ~ ul{
+    display: block;
 }
 
 .bin{
@@ -432,7 +427,6 @@ div.resizable div, div.resizable div div{
 }
 .input-holder{  
     height: 40px;
-
 }
 .fancyInputOuter{
     position: relative;

@@ -5,7 +5,7 @@
 // Sidebar Images:
 // var toolImgs = ['images/12-078L_eg.jpg', 'images/back.png', 'images/84630286-12f2-4a40-82fc-d3d8cc316fb4.jpg', 'images/square_PNG22.png'];//All Tool Images
 var toolImgs = ['images/Gbez/005.jpg', 'images/Gbez/035.jpg', 'images/Gbez/035_7908949a-a158-48c2-b861-2b3bef5bbae7.jpg', 'images/Gbez/047_dcfc424b-b4a6-43ed-8a6d-853766a89489.jpg']
-var storedImagesTools = [];
+var listOfAllTools = [];
 var activeTool = undefined;
 
 // Libraries ///////////////
@@ -65,9 +65,9 @@ function turnTheCanvasCursorInvisible(){
     canvas.classList.add('cursorNone');
 }
 function unstyleAllUnactiveTools(){
-    for (var i = 0; i < storedImagesTools.length; i++){
-        if (storedImagesTools[i] != activeTool){
-            storedImagesTools[i].classList.remove('selectedTool');
+    for (var i = 0; i < listOfAllTools.length; i++){
+        if (listOfAllTools[i] != activeTool){
+            listOfAllTools[i].classList.remove('selectedTool');
         }
     }
 }
@@ -84,8 +84,8 @@ function unselectAllTools(){
 }
 
 function unstyleAllTools(){
-    for (var i = 0; i < storedImagesTools.length; i++){
-        storedImagesTools[i].classList.remove('selectedTool');
+    for (var i = 0; i < listOfAllTools.length; i++){
+        listOfAllTools[i].classList.remove('selectedTool');
     }
 }
 function clearMouseDisplay(){

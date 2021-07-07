@@ -31,8 +31,8 @@ function buildToolImage(src){
     img.draggable = false
     styleToolImage(img);
 
-    storedImages.appendChild(img);
-    storedImagesTools.push(img);
+    // storedImages.appendChild(img);
+    listOfAllTools.push(img);
     img.addEventListener('mousedown', selectActiveTool); //event: Select Tool on tool Clicked
 }
 
@@ -65,21 +65,7 @@ function calculateAspectOf(image){
 
 
 
-var YTAPItag;
-var YTAPIfirstScriptTag;
-function invokeYoutubeApi(){
-    console.log('invoked');
-    YTAPItag = document.createElement('script');
-    YTAPItag.src = "HTTPS://www.youtube.com/player_api";
-    YTAPIfirstScriptTag = document.getElementsByTagName('script')[0];
-    YTAPIfirstScriptTag.parentNode.insertBefore(YTAPItag, YTAPIfirstScriptTag);
-}
-const ytTab = document.getElementById('YouTube-Tab');
-const navlist = document.getElementById('navlist');
 
-function onYouTubePlayerAPIReady() {
-    navlist.appendChild(ytTab);
-}
 
 
 
@@ -88,9 +74,8 @@ function onYouTubePlayerAPIReady() {
 // Onload page
 
 resize();
-ytTab.remove();
+// ytTab.remove();
 display.remove();
 loadAllSidebarTools();
 invokeYoutubeApi();
 textBoxToolsLoad();
-exampleVideoTool();

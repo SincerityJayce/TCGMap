@@ -19,7 +19,7 @@ def readFile(file):
 
 
 def commandPrompt(cmd):
-    return subprocess.call(cmd, shell = True)
+    subprocess.call(cmd, shell = True)
 
 def createZipFile(directory):
     return shutil.make_archive('79dcfa1a-fe22-4be2-ba3c-546cfb5cdca8', 'zip', directory)
@@ -97,7 +97,7 @@ def firebaseEmulatorsStart():
 
 
 def run():
-    findPID("8080")
+    findPID("5001")
     killFoundPIDs()
     firebaseEmulatorsStart()
 
