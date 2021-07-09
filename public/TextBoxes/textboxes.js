@@ -25,7 +25,7 @@ function buildTextBoxToolImage(path){
     img.extraFunction='textbox';
     
 
-    styleToolImage(img);
+    sizeToolImageToNav(img);
 
     navTabs['Text Boxes'].List.appendChild(img);
     listOfAllTools.push(img);
@@ -50,10 +50,12 @@ function makeTextboxFor(thisShape){
     }
 
     thisShape.textBox = makeTextbox();
-    thisShape.textBox.addEventListener("dblclick", thisShape.editTextBox);
+    thisShape.textBox.addEventListener("dblclick", function (){
+        startEditingTextBox(thisShape.textBox)
+    })
 }
 
-function  startEditingTextBox(s){
+function startEditingTextBox(s){
     textBoxBeingEdited = s;
     textBoxBeingEdited.setAttribute('contenteditable', true);
     selectElementContents(textBoxBeingEdited);
@@ -61,4 +63,25 @@ function  startEditingTextBox(s){
 
 
 
+function hideTextBox(thisShape){
+    thisShape.shapeFunctions["textbox"] = false;
+    thisShape.textBox.remove();
+    makeShapeNotResiazble(thisShape);
+}
+function showTextBox(thisShape){
+    thisShape.shapeFunctions["textbox"] = true;
+    thisShape.clickDiv.appendChild(thisShape.textBox);
+    makeShapeResiazble(thisShape);
+}
 
+function initialiseTextBoxOn(thisShape){
+    if(this.textBox ==undefined){
+        
+        makeTextboxFor(thisShape);
+        if(thisShape.shapeFunctions['video']==false){
+            thisShape.imageOn = false;
+        }
+        
+    }
+    showTextBox(thisShape)
+}

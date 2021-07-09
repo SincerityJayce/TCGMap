@@ -1,7 +1,6 @@
 const canvas = document.getElementById('canvas');
 const container = document.getElementById('container');
 const display = document.getElementById('float over');
-// const storedImages = document.getElementById('storedImages');
 var c = canvas.getContext('2d');
 var cDisplay = display.getContext('2d');
 var canvasAreaW = undefined;
@@ -13,9 +12,8 @@ var scale = 4; //resolution
 const topPalletHeight = 30; //custom pallet
 const leftPalletWidth = 0; //toolbox
 var viewScale = 1; //zoom
-
+    
 var totalScale = scale * viewScale;
-
 
 // Mouse Move!
 window.addEventListener('mousemove', 
@@ -25,7 +23,7 @@ window.addEventListener('mousemove',
         if (activeTool != undefined){ //if there is an active mouse tool
             requestAnimationFrame(updateMouseDisplay);
         }
-        ask_isCanvasDrifting();
+       
         if (iAmDrawingAnArrowNow){
             requestAnimationFrame(arrowMath)
         }
@@ -62,20 +60,7 @@ function setMouseXY(event){
 
 
 
-function createTheoreticalShape(){
-    console.log('theorising')
-    let [x, y] = convertCanvasXYintoFileXY(mouseOnCanvas.canvasX, mouseOnCanvas.canvasY);
 
-    let theory = {
-        src: activeTool.src,
-        x,
-        y
-    }
-
-    theoreticalShape = new BasicShape(theory);
-    theoreticalShape.identify();
-    console.log(theoreticalShape);
-}
 
 function ask_IsMouseOverCanvas(event){
         drawMouse = true; //will draw on canvas
@@ -94,13 +79,17 @@ function updateMouseDisplay(){
 
 
 function drawTheoreticalShapeOnMouseMove(event){
+    function drawTemporarily(thisShape) {
+        let [x, y] = convertFileXYintoCanvasXY(thisShape.x, thisShape.y);
+        let [w, h] = convertFileWHintoCanvasWH(thisShape.width, thisShape.height);
+        cDisplay.drawImage(thisShape.shape, x-w/2, y-h/2, w, h);
+    }   
     [theoreticalShape.x, theoreticalShape.y] = convertCanvasXYintoFileXY(mouseOnCanvas.canvasX, mouseOnCanvas.canvasY);
-    theoreticalShape.drawTemp();
+    drawTemporarily(theoreticalShape);
 }
 // Paint and unselect the tool
 function drawTheoreticalShapeOnClick(event){
     [theoreticalShape.x, theoreticalShape.y] = convertCanvasXYintoFileXY(mouseOnCanvas.canvasX, mouseOnCanvas.canvasY);
-    theoreticalShape.onFirstDraw();
     drawShape(theoreticalShape)
     drawnScreenShapes.push(theoreticalShape);
     unselectAllTools();

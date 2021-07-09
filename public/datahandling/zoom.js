@@ -4,37 +4,49 @@ const arbitraryZoomRatio = 0.9;
 const zoomDrift = 2/(1-arbitraryZoomRatio);
 
 function scaleObjectWithWheel(e){
-    let s;
-    if(shapeBeingDragged){
-        s=shapeBeingDragged
+
+    function scaleUp(thisShape){
+        thisShape.selfScale*= arbitraryZoomRatio;
+        thisShape.width = thisShape.w*thisShape.selfScale;
+        thisShape.height = thisShape.h*thisShape.selfScale;
     }
-    if(theoreticalShape){
-        s=theoreticalShape
+    function scaleDown(thisShape){
+        thisShape.selfScale/= arbitraryZoomRatio;
+        thisShape.width = thisShape.w*thisShape.selfScale;
+        thisShape.height = thisShape.h*thisShape.selfScale;
     }
-    if(e.deltaY > 0){
-       s ? s.scaleUp():{};
-    }
-    if(e.deltaY < 0){
-        s ? s.scaleDown():{};
-    }
-    if(shapeBeingDragged){
-        drawShape(s)
-    }
-    if(theoreticalShape){
-        requestAnimationFrame(updateMouseDisplay)
-    }
+
+    let s = shapeBeingDragged || theoreticalShape;
+
+    s ? ((e.deltaY > 0) ? scaleUp(s) : scaleDown(s)) : {};
+
+    // render action
+    shapeBeingDragged?drawShape(s):{};
+    theoreticalShape?requestAnimationFrame(updateMouseDisplay):{};
 }
 
 
 
 
 
-canvas.addEventListener('wheel', zoomCanvas);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 var mousePercent
 var mouseXRatio = 1;
 var mouseYRatio = 1;
-
 
 function zoomCanvas(e){
     if (mouseDownOnCanvas && activeTool == undefined){
@@ -48,6 +60,7 @@ function zoomCanvas(e){
         }
     }
 }
+canvas.addEventListener('wheel', zoomCanvas);
 
 function zoomIn(){
     viewScale *= arbitraryZoomRatio;
@@ -58,15 +71,8 @@ function zoomIn(){
     draggedFrom.canvasY = mouseOnCanvas.canvasY;
     draggedFrom.driftX = canvasDrift.x;
     draggedFrom.driftY = canvasDrift.y;
-
-    
-
     resize();
 }
-
-
-
-
 function zoomOut(){
     canvasDrift.x -= canvasAreaW/zoomDrift*viewScale;
     canvasDrift.y -= canvasAreaH/zoomDrift*viewScale;
@@ -80,42 +86,52 @@ function zoomOut(){
     resize();
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //click and drag events
 var mouseDownOnCanvas = false;
-
 var draggedFrom = {canvasX: undefined, canvasY: undefined, driftX: undefined, driftY:undefined};
-
+canvas.addEventListener('mouseleave',() =>{mouseDownOnCanvas = false;})
+canvas.addEventListener('mouseup',  () =>{mouseDownOnCanvas = false;})
 canvas.addEventListener('mousedown',
     function(event){
+        function setDraggedFromPoint(event){
+            draggedFrom.canvasX = mouseOnCanvas.canvasX;
+            draggedFrom.canvasY = mouseOnCanvas.canvasY;
+            draggedFrom.driftX = canvasDrift.x;
+            draggedFrom.driftY = canvasDrift.y;
+        }
         setMouseXY(event)
         setDraggedFromPoint(event);
         mouseDownOnCanvas = true;
     })
-function setDraggedFromPoint(event){
-    draggedFrom.canvasX = mouseOnCanvas.canvasX;
-    draggedFrom.canvasY = mouseOnCanvas.canvasY;
-    draggedFrom.driftX = canvasDrift.x;
-    draggedFrom.driftY = canvasDrift.y;
-}
 
-canvas.addEventListener('mouseleave', 
-    function(event){
-        mouseDownOnCanvas = false;
-    })
 
-canvas.addEventListener('mouseup',
-    function(event){
-        mouseDownOnCanvas = false;
-    })
 
+window.addEventListener('mousemove', ask_isCanvasDrifting);
 function ask_isCanvasDrifting(event){
+
+    function updateCanvasDrift() {
+        canvasDrift.x = draggedFrom.driftX + (draggedFrom.canvasX - mouseOnCanvas.canvasX)*viewScale;
+        canvasDrift.y = draggedFrom.driftY + (draggedFrom.canvasY - mouseOnCanvas.canvasY)*viewScale;
+        resize();
+    }
+
     if (activeTool == undefined && mouseDownOnCanvas){
         requestAnimationFrame(updateCanvasDrift);
     }
 }
 
-function updateCanvasDrift() {
-    canvasDrift.x = draggedFrom.driftX + (draggedFrom.canvasX - mouseOnCanvas.canvasX)*viewScale;
-    canvasDrift.y = draggedFrom.driftY + (draggedFrom.canvasY - mouseOnCanvas.canvasY)*viewScale;
-    resize();
-}

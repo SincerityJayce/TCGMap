@@ -110,7 +110,7 @@ function menuLogic(){
 
         function toggleTextBoxOnVidShape(){
             function addTextBoxToVidShape(){
-                contextShape.InitialiseTextBox();
+                initialiseTextBoxOn(contextShape);
                 contextShape.textBox.innerHTML = "Thumbnail";
                 startEditingTextBox(contextShape.textBox);}
 
@@ -118,7 +118,7 @@ function menuLogic(){
                 addTextBoxToVidShape();
             }else{
                 editNoTextBox();
-                contextShape.HideTextBox();}
+                hideTextBox(contextShape);}
             hideRightClickMenu();
             
         }
@@ -243,9 +243,6 @@ const potentialMenuObjects = new menuLogic();
 console.log(potentialMenuObjects)
 
 function formatRightClickMenu(){
-    // shapemMenuDiv.style.left = contextShape.divStyleMath.left;
-    // shapemMenuDiv.style.top = contextShape.divStyleMath.top;
-    // shapemMenuDiv.style.width=contextShape.shapeDiv.width;
     shapemMenuDiv.style.width="100%";
     shapemMenuDiv.style.top = "0";
 }

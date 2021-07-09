@@ -38,6 +38,30 @@ var drawnScreenShapes = [];
 
 
 function selectActiveTool(event){
+    function unstyleAllUnactiveTools(){
+        for (var i = 0; i < listOfAllTools.length; i++){
+            if (listOfAllTools[i] != activeTool){
+                listOfAllTools[i].classList.remove('selectedTool');
+            }
+        }
+    }
+
+    function createTheoreticalShape(){
+        console.log('theorising')
+        let [x, y] = convertCanvasXYintoFileXY(mouseOnCanvas.canvasX, mouseOnCanvas.canvasY);
+    
+        let theory = {
+            src: activeTool.src,
+            onbuild: activeTool.onbuild,
+            x,
+            y
+        }
+    
+        theoreticalShape = new BasicShape(theory);
+        idTagShape(theoreticalShape);
+    }
+
+
     if (activeTool != event.srcElement){
         activeTool = event.srcElement;
         activeTool.classList.add('selectedTool');
@@ -64,16 +88,18 @@ function turnTheCanvasCursorInvisible(){
     display.classList.add('cursorNone');
     canvas.classList.add('cursorNone');
 }
-function unstyleAllUnactiveTools(){
-    for (var i = 0; i < listOfAllTools.length; i++){
-        if (listOfAllTools[i] != activeTool){
-            listOfAllTools[i].classList.remove('selectedTool');
-        }
-    }
-}
+
 
 // ! Unselects any currently selected tool
 function unselectAllTools(){
+    function unstyleAllTools(){
+        listOfAllTools
+            .forEach((tool)=>{tool.classList.remove('selectedTool');})
+    }
+
+
+
+
     activeTool = undefined;
 
     unstyleAllTools();
@@ -83,11 +109,7 @@ function unselectAllTools(){
     theoreticalShape = undefined;
 }
 
-function unstyleAllTools(){
-    for (var i = 0; i < listOfAllTools.length; i++){
-        listOfAllTools[i].classList.remove('selectedTool');
-    }
-}
+
 function clearMouseDisplay(){
     cDisplay.clearRect(0, 0, canvasAreaW, canvasAreaH);
 }

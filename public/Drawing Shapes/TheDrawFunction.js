@@ -1,6 +1,13 @@
 function drawShape(thisShape){
     console.log('drawing', thisShape)
 
+    if(thisShape.neverDrawn){
+        container.appendChild(thisShape.shapeDiv);
+        InitShapeFunctions(thisShape)
+        thisShape.neverDrawn = false
+    }
+
+
 
     function recalculateShape(thisShape){
         thisShape.width = thisShape.w*thisShape.selfScale;

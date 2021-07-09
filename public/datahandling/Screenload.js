@@ -15,11 +15,15 @@ function resize(){
 }
 
 function drawCanvas(){
-    c.clearRect(0, 0, canvas.width, canvas.height);
-    for (var i = 0; i < drawnScreenShapes.length; i++){
-        drawShape(drawnScreenShapes[i])
-        drawnScreenShapes[i].drawarrows();
+    function drawArrows(thisShape){
+        thisShape.arrows.forEach((arr) =>{arr.draw()})
     }
+    
+    c.clearRect(0, 0, canvas.width, canvas.height);
+    drawnScreenShapes.forEach((shape)=>{
+        drawShape(shape)
+        drawArrows(shape)
+    })
 }
 
 
@@ -29,7 +33,7 @@ function buildToolImage(src){
     img.src = src;
     img.id = src;
     img.draggable = false
-    styleToolImage(img);
+    sizeToolImageToNav(img);
 
     // storedImages.appendChild(img);
     listOfAllTools.push(img);
@@ -42,7 +46,7 @@ function loadAllSidebarTools(){
     }
 }
 
-function styleToolImage(img){
+function sizeToolImageToNav(img){
     img.classList.add('unselectedTool');
     aspect = calculateAspectOf(img.src);
     if ((58/aspect) > 79){

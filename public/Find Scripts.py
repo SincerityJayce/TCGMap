@@ -1,6 +1,6 @@
 import os
 
-thisDirectory = r"C:\Users\Roy\Desktop\Test\public"
+thisDirectory = r"C:\Users\Roy\Desktop\Current - Copy\public"
 paths = [""]
 
 

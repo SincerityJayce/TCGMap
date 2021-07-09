@@ -75,58 +75,7 @@ function fullscreenPlayingVid(){
 }
 
 
-function makeShapeFullscreen(thisShape){
-    let shapeDiv = thisShape.shapeDiv;
-    
-    var requestFullScreen = shapeDiv.requestFullScreen || shapeDiv.mozRequestFullScreen || shapeDiv.webkitRequestFullScreen;
-    if(requestFullScreen){
-        
-        shapeBeingResized = undefined;
-        requestFullScreen.bind(shapeDiv)();
 
-        function listenForNotFullScreen(){
-            notFullScreen = false;
-            fullScreenDiv = thisShape.shapeDiv
-        }
-
-        listenForNotFullScreen()}
-}
-
-
-// // fullscreen on keydown. need to make trigger clean then it's ready to go
-// // also att toggle fullscreen functionality to this
-// document.addEventListener('keydown', function(e){
-//     console.log('keydown on container', e)
-//     if (e.code == "KeyF"){
-//         fullscreenPlayingVid();
-//     }
-// })
-
-
-
-
-
-
-
-function playOrPause(thisShape){ 
-    let statePorP = {
-        0 : pauseYT,
-        1 : playYT,
-        2 : pauseYT,
-        3 : playYT,
-        5 : pauseYT}
-    statePorP[thisShape.vidPlayer.getPlayerState()](thisShape);
-}
-
-function playPauseToggle(thisShape){ 
-    let statePorP = {
-        0 : playYT,
-        1 : pauseYT,
-        2 : playYT,
-        3 : pauseYT,
-        5 : playYT}
-    statePorP[thisShape.vidPlayer.getPlayerState()](thisShape);
-}
 
 
 
@@ -134,7 +83,7 @@ window.addEventListener('mousedown', seekYoutubeData_Off);
 window.addEventListener('mouseup', function(){
     if(activeSlider){
         seekYoutubeData_On();
-        activeSlider.setVideoPosition();
+        setVideoPosition(activeSlider);
         activeSlider = undefined
     }
 })

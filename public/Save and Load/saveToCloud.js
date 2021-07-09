@@ -72,7 +72,7 @@ function getMyMaps(){
 function buildMapSave(doc){
     let map = new Image();
     map.src="/images/map.png";
-    styleToolImage(map);
+    sizeToolImageToNav(map);
     map.addEventListener('click',() => {
         c.clearRect(0, 0, canvas.width, canvas.height);
         drawnScreenShapes.forEach(deleteDrawnShape);

@@ -8,7 +8,7 @@ function buildYTToolImage(link){
     
 
     console.log(img.extraFunction, img.YTid, unpackYTLink(link))
-    styleToolImage(img);
+    sizeToolImageToNav(img);
 
     navTabs["Youtube"].List.appendChild(img);
     listOfAllTools.push(img);

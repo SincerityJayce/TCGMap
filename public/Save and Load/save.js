@@ -91,8 +91,7 @@ function generateObjects(savefile){
         let o = savefile[i];
         console.log('generating shape', o)
         importedShape = (new BasicShape(o));
-        importedShape.identify();
-        importedShape.onFirstDraw();
+        idTagShape(importedShape);
         drawShape(importedShape)
         loadTextBox(importedShape, o.text);
 

@@ -1,3 +1,4 @@
+// init_FFDecks does not run. I disabled it.
 function init_FFDecks(){
   new NavElement({Title:'FFDecks'})
 
@@ -48,7 +49,7 @@ function init_FFDecks(){
     img.id = src;
     img.classList.add('FFDecks')
     img.draggable = false;
-    styleToolImage(img);
+    sizeToolImageToNav(img);
   
     navTabs['FFDecks'].List.appendChild(img);
     listOfAllTools.push(img);
@@ -57,7 +58,7 @@ function init_FFDecks(){
   
 }
 
-init_FFDecks();
+// init_FFDecks();
 
 
 
