@@ -1,5 +1,6 @@
 import subprocess
 import shutil
+import json
 import re
 import os
 
@@ -95,12 +96,19 @@ def firebaseEmulatorsStart():
 ######
 ##
 
+def forEachEmulatorPort(func):
+    ports = json.loads(readFile('firebase.json'))['emulators'].values()
+    for port in ports:
+        print(port)
+        if 'port' in port:
+            func(port['port'])
 
-def run():
-    findPID("5001")
+
+
+def killPort(port):
+    findPID(port)
     killFoundPIDs()
-    firebaseEmulatorsStart()
 
-    openDirectoryInExplorer('localhost:5000')
 
-run()
+forEachEmulatorPort(killPort)
+# firebaseEmulatorsStart()

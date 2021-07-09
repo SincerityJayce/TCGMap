@@ -28,7 +28,7 @@
       "port": 5000
     },
     "functions": {
-      "port": 5001
+      "port": 5002
     },
     "storage": {
       "port": 9199

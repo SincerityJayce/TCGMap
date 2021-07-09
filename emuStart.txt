@@ -1,10 +1,11 @@
 [1m[36mi  emulators:[39m[22m Starting emulators: auth, functions, firestore, hosting, storage
+[1m[33m!  emulators:[39m[22m It seems that you are running multiple instances of the emulator suite for project third-runway-317015. This may result in unexpected behavior.
 [1m[33m!  functions:[39m[22m The following emulators are not running, calls to these services from the Functions emulator will affect production: [1mdatabase, pubsub[22m
 [1m[32m+  functions:[39m[22m Using node@14 from host.
 [1m[36mi  firestore:[39m[22m Firestore Emulator logging to [1mfirestore-debug.log[22m
 [1m[36mi  hosting:[39m[22m Serving hosting files from: [1mpublic[22m
 [1m[32m+  hosting:[39m[22m Local server: [4m[1mhttp://localhost:5000[22m[24m
-[1m[33m!  ui:[39m[22m Emulator UI unable to start on port 4000, starting on 4015 instead.
+[1m[33m!  ui:[39m[22m Emulator UI unable to start on port 4000, starting on 4003 instead.
 [1m[36mi  ui:[39m[22m Emulator UI logging to [1mui-debug.log[22m
 [1m[36mi  functions:[39m[22m Watching "C:\Users\Roy\Desktop\Current - Copy\functions" for Cloud Functions...
 [1m[32m+  functions[us-central1-affirmUpload]:[39m[22m [1mhttp[22m function initialized (http://localhost:5001/third-runway-317015/us-central1/affirmUpload).
@@ -13,38 +14,27 @@
 
 ┌─────────────────────────────────────────────────────────────┐
 │ [32m✔[39m  [1mAll emulators ready! It is now safe to connect your app.[22m │
-│ [36mi[39m  View Emulator UI at [4m[1mhttp://localhost:4015[22m[24m                │
+│ [36mi[39m  View Emulator UI at [4m[1mhttp://localhost:4003[22m[24m                │
 └─────────────────────────────────────────────────────────────┘
 
 ┌────────────────┬────────────────┬─────────────────────────────────┐
 │ Emulator       │ Host:Port      │ View in Emulator UI             │
 ├────────────────┼────────────────┼─────────────────────────────────┤
-│ Authentication │ localhost:9099 │ [4m[1mhttp://localhost:4015/auth[22m[24m      │
+│ Authentication │ localhost:9099 │ [4m[1mhttp://localhost:4003/auth[22m[24m      │
 ├────────────────┼────────────────┼─────────────────────────────────┤
-│ Functions      │ localhost:5001 │ [4m[1mhttp://localhost:4015/functions[22m[24m │
+│ Functions      │ localhost:5001 │ [4m[1mhttp://localhost:4003/functions[22m[24m │
 ├────────────────┼────────────────┼─────────────────────────────────┤
-│ Firestore      │ localhost:8080 │ [4m[1mhttp://localhost:4015/firestore[22m[24m │
+│ Firestore      │ localhost:8080 │ [4m[1mhttp://localhost:4003/firestore[22m[24m │
 ├────────────────┼────────────────┼─────────────────────────────────┤
 │ Hosting        │ localhost:5000 │ [90mn/a[39m                             │
 ├────────────────┼────────────────┼─────────────────────────────────┤
-│ Storage        │ localhost:9199 │ [4m[1mhttp://localhost:4015/storage[22m[24m   │
+│ Storage        │ localhost:9199 │ [4m[1mhttp://localhost:4003/storage[22m[24m   │
 └────────────────┴────────────────┴─────────────────────────────────┘
 [90m  Emulator Hub running at [39mlocalhost:4400
 [90m  Other reserved ports:[39m 4500
 
 Issues? Report them at [4m[1mhttps://github.com/firebase/firebase-tools/issues[22m[24m and attach the *-debug.log files.
  
-[1m[33m!  firestore:[39m[22m Fatal error occurred: 
-   Firestore Emulator has exited with code: 1, 
-   stopping all running emulators
-[1m[36mi  ui:[39m[22m Stopping Emulator UI
-[1m[33m! [39m[22m Emulator UI has exited upon receiving signal: SIGINT
-[1m[36mi  functions:[39m[22m Stopping Functions Emulator
-[1m[36mi  hosting:[39m[22m Stopping Hosting Emulator
-[1m[36mi  firestore:[39m[22m Stopping Firestore Emulator
-[1m[33m!  firestore:[39m[22m Error stopping Firestore Emulator
-[1m[36mi  auth:[39m[22m Stopping Authentication Emulator
-[1m[36mi  storage:[39m[22m Stopping Storage Emulator
-[1m[36mi  hub:[39m[22m Stopping emulator hub
-[1m[33m!  hub:[39m[22m Error stopping emulator hub
-[1m[36mi  logging:[39m[22m Stopping Logging Emulator
+[1m[36mi  hosting:[39m[22m 127.0.0.1 - - [08/Jul/2021:08:21:25 +0000] "GET / HTTP/1.1" 200 8234 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36 Edg/91.0.864.59"
+[1m[36mi  hosting:[39m[22m 127.0.0.1 - - [08/Jul/2021:08:21:25 +0000] "GET /__/firebase/init.js?useEmulator=true HTTP/1.1" 200 - "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36 Edg/91.0.864.59"
+[1m[36mi  hosting:[39m[22m 127.0.0.1 - - [08/Jul/2021:08:21:25 +0000] "GET /NavbarTools/Navbar.js HTTP/1.1" 200 1733 "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36 Edg/91.0.864.59"

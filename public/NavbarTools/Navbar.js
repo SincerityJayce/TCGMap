@@ -45,7 +45,7 @@ function NavElement(blueprint){
 
     this.Title = title;
     this.List = list;
-    this.uninstallNode = li
+    this.Parent = li
     navTabs[blueprint.Title] = this
     this.uninstall = function(){
         li.remove();

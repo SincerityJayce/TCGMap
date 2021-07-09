@@ -7,8 +7,8 @@ window.addEventListener('mousemove',
         if (shapeBeingDragged && notFullScreen){
             objectUnmoved = false;
             let [x,y] = [(mouseStarteDraggingFrom.x - mouseOnCanvas.x)*totalScale, (mouseStarteDraggingFrom.y - mouseOnCanvas.y)*totalScale]
-            shapeBeingDragged.x = shapeBeingDragged.draggedfrom.x - x;
-            shapeBeingDragged.y = shapeBeingDragged.draggedfrom.y - y;
+            shapeBeingDragged.x = shapeBeingDragged.draggedfrom.x - (navFloat ? 0 : x);
+            shapeBeingDragged.y = shapeBeingDragged.draggedfrom.y - (navFloat ? 0 : y);
             requestAnimationFrame(redrawShapeBeingDragged);
         }
     })
