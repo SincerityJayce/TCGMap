@@ -42,7 +42,6 @@ function resizeAShape(){
         shapeBeingResized.w = shapeBeingResized.shapeDiv?.offsetWidth/shapeBeingResized.selfScale*totalScale;
         shapeBeingResized.h = shapeBeingResized.shapeDiv?.offsetHeight/shapeBeingResized.selfScale*totalScale;
         drawShape(shapeBeingResized);
-        console.log(shapeBeingResized)
     }}
 
 
@@ -62,7 +61,6 @@ function makeShapeResiazble(thisShape){
 
     thisShape.shapeDiv.addEventListener('mousedown',function(e){
         shapeBeingResized = thisShape;
-        console.log(shapeBeingResized)
     })
 }
 function makeShapeNotResiazble(thisShape){
@@ -70,6 +68,5 @@ function makeShapeNotResiazble(thisShape){
 
     thisShape.shapeDiv.removeEventListener('mousedown',function(e){
         shapeBeingResized = thisShape;
-        console.log(shapeBeingResized)
     })
 }

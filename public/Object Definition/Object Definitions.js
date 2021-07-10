@@ -67,6 +67,8 @@ function BasicShape(model){
 
 
 
+    InitShapeFunctions(thisShape)
+    container.appendChild(thisShape.shapeDiv);
 
 
 

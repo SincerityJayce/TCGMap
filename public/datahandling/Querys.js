@@ -20,7 +20,6 @@ function FoundShape(id){
     for (var i=0; i<drawnScreenShapes.length;i+=1){
         if (id == drawnScreenShapes[i].id){
             o = drawnScreenShapes[i];
-            console.log(o, 'shape from id');
         }
     }
     return o;

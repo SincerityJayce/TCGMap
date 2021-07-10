@@ -50,25 +50,37 @@ function selectActiveTool(event){
         console.log('theorising')
         let [x, y] = convertCanvasXYintoFileXY(mouseOnCanvas.canvasX, mouseOnCanvas.canvasY);
     
-        let theory = {
+        let theory = (activeTool.bluePrint  || {
             src: activeTool.src,
             onbuild: activeTool.onbuild,
             x,
             y
-        }
+        });
     
         theoreticalShape = new BasicShape(theory);
+        
+        console.log('')
         idTagShape(theoreticalShape);
+        theoreticalShape.clickDiv.addEventListener('mouseup',
+            function(event){
+                setMouseXY(event);
+                if (activeTool != undefined){
+                    drawTheoreticalShapeOnClick(event);
+                    unselectAllTools();
+                }
+            })
     }
 
 
     if (activeTool != event.srcElement){
         activeTool = event.srcElement;
+        console.log(activeTool)
         activeTool.classList.add('selectedTool');
         addDisplayToDOM();
         turnTheCanvasCursorInvisible();
         doOneThing()
         unstyleAllUnactiveTools();
+        theoreticalShape ? deleteDrawnShape(theoreticalShape) :{};
         createTheoreticalShape();
     } else {
         unselectAllTools();
@@ -106,6 +118,7 @@ function unselectAllTools(){
     clearMouseDisplay();
     turnTheCanvasCursorVisible();
     removeDisplayFromDOM();
+    theoreticalShape ? deleteDrawnShape(theoreticalShape) :{};
     theoreticalShape = undefined;
 }
 

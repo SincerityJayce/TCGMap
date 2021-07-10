@@ -10,7 +10,7 @@ function init_FFDecks(){
     takeDeckRequest(link);
   }
   
-  deckLinkBox = makePasteBox(onPasteDeckLink)
+  deckLinkBox = makePasteBox(onPasteDeckLink, "Paste ffdecks.com/deck link...")
   navTabs['FFDecks'].List.appendChild(deckLinkBox)
 
 

@@ -36,6 +36,9 @@ bin.addEventListener('mouseup',
             deleteDrawnShape(shapeBeingDragged);
 
         }
+        if (theoreticalShape){
+            deleteDrawnShape(theoreticalShape)
+        }
         if (activeTool){
             if(activeTool.parentNode == (navTabs["Youtube"].List || navTabs['FFDecks'].List)){
                 activeTool.remove();

@@ -153,9 +153,7 @@ function menuLogic(){
             
         }
         input.addEventListener('keydown',function(e){
-            console.log(e);
             if(e.key == "Enter"){
-                console.log(input.value)
                 setBackgrounColorContextualShape(input.value);
                 input.placeholder = contextShape.textboxBackgroundColor;}})
 
@@ -227,7 +225,6 @@ function menuLogic(){
 
     "textbox":[m.SetBackgroundColor, m.SetBorderStyle, m.SetFont, m.ColorPickerLink]}
 
-    console.log(this)
     return this
 }
 
@@ -240,7 +237,6 @@ function menuLogic(){
 
 
 const potentialMenuObjects = new menuLogic();
-console.log(potentialMenuObjects)
 
 function formatRightClickMenu(){
     shapemMenuDiv.style.width="100%";

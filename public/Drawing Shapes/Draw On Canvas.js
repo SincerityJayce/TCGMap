@@ -19,7 +19,7 @@ var totalScale = scale * viewScale;
 window.addEventListener('mousemove', 
     function(event){
         setMouseXY(event);
-        ask_IsMouseOverCanvas(event)
+        // ask_IsMouseOverCanvas(event)
         if (activeTool != undefined){ //if there is an active mouse tool
             requestAnimationFrame(updateMouseDisplay);
         }
@@ -40,14 +40,7 @@ var mouseOnCanvas = {x:undefined, y:undefined,
 
 
 
-display.addEventListener('mouseup',
-    function(event){
-        setMouseXY(event);
-        if (activeTool != undefined){
-            drawTheoreticalShapeOnClick(event);
-            unselectAllTools();
-        }
-    })
+
 
 function setMouseXY(event){
     mouseOnCanvas.x = event.x - canvas.getBoundingClientRect().left;
@@ -85,12 +78,13 @@ function drawTheoreticalShapeOnMouseMove(event){
         cDisplay.drawImage(thisShape.shape, x-w/2, y-h/2, w, h);
     }   
     [theoreticalShape.x, theoreticalShape.y] = convertCanvasXYintoFileXY(mouseOnCanvas.canvasX, mouseOnCanvas.canvasY);
-    drawTemporarily(theoreticalShape);
+    drawShape(theoreticalShape);
 }
 // Paint and unselect the tool
 function drawTheoreticalShapeOnClick(event){
     [theoreticalShape.x, theoreticalShape.y] = convertCanvasXYintoFileXY(mouseOnCanvas.canvasX, mouseOnCanvas.canvasY);
     drawShape(theoreticalShape)
     drawnScreenShapes.push(theoreticalShape);
+    theoreticalShape = undefined;
     unselectAllTools();
 }

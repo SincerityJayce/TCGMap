@@ -56,12 +56,12 @@ var navTabs = {}
 
 
 
-function makePasteBox(pasteFunc){
+function makePasteBox(pasteFunc, placeholder){
     let input = make('input')
     input.type = "text";
     input.autocomplete = 'off';
     input.addEventListener('paste', pasteFunc)
-    input.placeholder="Paste ffdecks.com/deck link..."
+    input.placeholder=placeholder
     
     return input
   }

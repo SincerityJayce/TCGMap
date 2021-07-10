@@ -19,11 +19,11 @@ function init_Youtube(){
 
     function ytPasteEvent(e){
         e.preventDefault();
-        ytPaste.value = "";
+        e.target.value = "";
         buildYTToolImage(e.clipboardData.getData('text'));
     }
 
-    navTabs["Youtube"].List.appendChild(makePasteBox(ytPasteEvent))
+    navTabs["Youtube"].List.appendChild(makePasteBox(ytPasteEvent, "Paste Youtube link here..."))
 }
 
 
