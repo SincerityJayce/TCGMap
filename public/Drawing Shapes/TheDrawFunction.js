@@ -2,6 +2,8 @@ function drawShape(thisShape){
 
     if(thisShape.neverDrawn){
         thisShape.neverDrawn = false
+        thisShape.shape.download = "output.png";
+        thisShape.shape.click();
     }
 
 

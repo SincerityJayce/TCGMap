@@ -18,7 +18,9 @@ function init_uploadProgressBar(){
 }
 const uploadProgressBar = init_uploadProgressBar()
 
-function onFilesRecieved(){
+
+
+function sendFilesToServer(){
     async function requestStorageSpace(params){
 
         let fetchThis = buildFetchURL('affirmUpload', params);

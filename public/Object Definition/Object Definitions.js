@@ -40,7 +40,7 @@ function BasicShape(model){
         this.shapeDiv = makeShapeDiv();
         this.clickDiv = makeClickDiv();
         this.shapeDiv.appendChild(this.clickDiv);
-        this.shape =makeShape(model.src);
+        this.shape =makeShape(this.src);
         this.clickDiv.appendChild(this.shape);
 
         this.divStyleMath;

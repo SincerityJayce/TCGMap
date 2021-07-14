@@ -15,6 +15,8 @@ function dragNoShape(){
     shapeBeingDragged = undefined;
 }
 function editNoTextBox(){
+    toolTitleBeingEdited?.setAttribute('contenteditable', false);
+    toolTitleBeingEdited = undefined
     textBoxBeingEdited?.setAttribute('contenteditable', false);
     textBoxBeingEdited = undefined;
 }
