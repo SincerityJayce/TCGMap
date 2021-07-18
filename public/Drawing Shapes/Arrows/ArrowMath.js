@@ -1,7 +1,7 @@
 var iAmDrawingAnArrowNow = false;
 var arrowObj;
 var arrow = new Image();
-arrow.src = 'images/arrow.png';
+arrow.src = 'images/arrow.jpg';
 var arrowStart;
 var defaultArrowWidth = 100;
 
@@ -47,7 +47,13 @@ function arrowMath(){
 
 }    
 
-function drawArrowBetweenPoints(start, finish, context){
+function drawArrowBetweenPoints(start, finish, context, target){
+
+
+
+
+
+
     // point 1 = start.x, start.y
     // if (Math.abs())
     let opposite = start.x-finish.x;
@@ -55,7 +61,11 @@ function drawArrowBetweenPoints(start, finish, context){
     let deg = Math.atan2(opposite, adjacent);
     let height = Math.sqrt(opposite*opposite+adjacent*adjacent);
     drawImageRot(start.x, start.y, defaultArrowWidth/viewScale, height, deg, context);
+    applySVGArrowHead(target, deg)
+
 }
+
+
 
 
 function drawImageRot(x,y,width,height,rad, context){

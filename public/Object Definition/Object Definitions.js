@@ -61,7 +61,7 @@ function BasicShape(model){
         this.videoStart = model.videoStart || 0;
         this.videoFinish = model.videoFinish || 60;
 
-        this.textboxBackgroundColor = model.textboxBackgroundColor || "#20202088";
+        this.textboxBackgroundColor = model.textboxBackgroundColor || "#202020";
         this.textThumbnail = false;
     //
 

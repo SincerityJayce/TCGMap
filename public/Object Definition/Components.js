@@ -53,7 +53,7 @@ function deleteDrawnShape(thisShape){
     drawnScreenShapes = drawnScreenShapes.filter(
         function(ele){return ele != thisShape;})
         
-    thisShape.shape.remove();
+    thisShape.shape?.remove();
     thisShape.alive = false;
     thisShape.shapeDiv.remove()
     playerIsNotPlaying(thisShape);

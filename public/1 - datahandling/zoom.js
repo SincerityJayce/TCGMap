@@ -49,7 +49,9 @@ var mouseXRatio = 1;
 var mouseYRatio = 1;
 
 function zoomCanvas(e){
+
     if (mouseDownOnCanvas && activeTool == undefined){
+
         mouseXratio = e.clientX*2/window.innerWidth;
         mouseYratio = e.clientY*2/window.innerHeight;
         if(e.deltaY > 0){

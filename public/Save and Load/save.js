@@ -1,8 +1,6 @@
 var idKeys={};
 saveBtn = document.getElementById('save-btn');
-saveBtn.addEventListener('click', function(){
-    saveProject();
-})
+saveBtn.addEventListener('click', saveProject)
 const infodump = document.getElementById('save-infodump');
 infodump.remove();
 var importedShape = undefined;
@@ -10,7 +8,6 @@ var importedShape = undefined;
 
 
 function saveProject(){
-    console.log('yeah shoulda')
     
     let save = createJSON();
     document.body.appendChild(infodump);
@@ -77,12 +74,14 @@ function getTextFrom(shape){
 
 // load
 
-
+function loadJsonMap(json){
+    generateObjects(JSON.parse(json))
+}
 function onPasteMapLink(e){
     e.preventDefault();
     document.getElementById('loadmap').value = "";
-    savefile = JSON.parse(e.clipboardData.getData('text'));
-    generateObjects(savefile);
+    loadJsonMap(e.clipboardData.getData('text'));
+
 }
 var importedShapes =  [];
 function generateObjects(savefile){

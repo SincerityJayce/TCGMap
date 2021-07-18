@@ -1,33 +1,22 @@
 <html lang='en'>
     <head>
         <meta charset="UTF-8">
-        <title>9
-        </title>
+        <title>10</title>
+
+        <!-- My CSS -->
         <link rel='stylesheet' href='css.css'>  
         <link rel='stylesheet' href='Drag and Drop File Upload\dragndrop.css'>
         <link rel='stylesheet' href='Drawing Shapes\Arrows\Arrows.css'>
 
-
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-
+        <!-- JQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+        <!-- style -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
         <script src="https://use.fontawesome.com/0fa5cb38d5.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
-        <style type='text/css'>
-        
-        </style>    
 
-        <div id='shapemMenuDiv'>
-            <ul id='menuList'>
-            </ul>
-        </div>
-
-
-        <svg id='textSquare' width="30" height="30">
-            <rect width="30" height="30" style="fill:rgba(255, 158, 158,0);stroke-width:0;stroke:rgb(0,0,0)" />
-        </svg>
-
+        <!-- Firebase -->
         <!-- update the version number as needed -->
         <script defer src="/__/firebase/8.6.8/firebase-app.js"></script>
         <!-- include only the Firebase features as you need -->
@@ -46,63 +35,24 @@
         -->
         <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
-    </head>
-    <body>
-        <section class='wrapper' id='container'>
-            <canvas id='canvas'></canvas>
-            <canvas id='float over'></canvas> 
-        </section>
-
-        <nav class='navbar' id='navbar'>
-            <ul id='navlist'>
-                <svg id='textSquare' width="30" height="30">
-                    <path d="M1575.8,827c16.6699-23.8,33.3199-47.62,50.0399-71.4c5.8101,0.03,11.62-0.02,17.4501,0.03
-                    c-15.14,21.76-30.4401,43.4-45.5601,65.17c66.35,0.02,132.7001-0.01,199.05,0.02c0,4.14,0,8.28,0.01,12.43
-                    c-66.3401,0.05-132.6801-0.02-199.02,0.04c15.1,21.78,30.4199,43.39,45.53,65.16c-5.8301,0.04-11.66,0-17.4801,0.02
-                    C1609.16,874.63,1592.4399,850.85,1575.8,827z" style="fill:red"/>
-
-
-                    <svg class='ArrowHead' width="30" height="30">
-                        <path d="M5 25 L15 15 L25 25" fill='none' transform='rotate(30deg)' stroke='black'/>
-                    </svg>
-                </svg>
-            </ul>
-        </nav>
-
-
-   
-
-
-
-
-
-
-        <i id='bin' class="fa fa-trash bin fa-2x" aria-hidden="true"></i>
-
-        <i id='save-btn' class="fa fa-save save-btn fa-2x" aria-hidden="true"></i>
-        <input id='save-infodump' type='text' ></input>
-
-        <!-- tiktok embed example -->
-       <!-- <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@jimsgroup/video/6974324211678465282" data-video-id="6974324211678465282" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@jimsgroup" href="https://www.tiktok.com/@jimsgroup">@jimsgroup</a> <p>How did Jim start Jim’s Mowing? <a title="jimsgroup" target="_blank" href="https://www.tiktok.com/tag/jimsgroup">#jimsgroup</a> <a title="story" target="_blank" href="https://www.tiktok.com/tag/story">#story</a> <a title="storytime" target="_blank" href="https://www.tiktok.com/tag/storytime">#storytime</a> <a title="comedy" target="_blank" href="https://www.tiktok.com/tag/comedy">#comedy</a> <a title="audiobook" target="_blank" href="https://www.tiktok.com/tag/audiobook">#audiobook</a> <a title="meme" target="_blank" href="https://www.tiktok.com/tag/meme">#meme</a> <a title="truestory" target="_blank" href="https://www.tiktok.com/tag/truestory">#truestory</a> <a title="jimsmowing" target="_blank" href="https://www.tiktok.com/tag/jimsmowing">#jimsmowing</a> <a title="origin" target="_blank" href="https://www.tiktok.com/tag/origin">#origin</a> <a title="laugh" target="_blank" href="https://www.tiktok.com/tag/laugh">#laugh</a> <a title="laughter" target="_blank" href="https://www.tiktok.com/tag/laughter">#laughter</a> <a title="brand" target="_blank" href="https://www.tiktok.com/tag/brand">#brand</a> <a title="icon" target="_blank" href="https://www.tiktok.com/tag/icon">#icon</a></p> <a target="_blank" title="♬ Living Room - Clutch" href="https://www.tiktok.com/music/Living-Room-6776548701574793218">♬ Living Room - Clutch</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script> -->
-
-
-
-        <script src='datahandling\Querys.js' defer></script>
-
+        <!-- My JS -->
+        <script src='1 - datahandling\Querys.js' defer></script>
         <script src='NavbarTools\Navbar.js' defer></script>
         <script src='Save and Load\My Maps.js' defer></script>
-        <script src='datahandling\doOneThing.js' defer></script>
+        <script src='1 - datahandling\doOneThing.js' defer></script>
         <script src='Drag and Drop File Upload\My Images.js' defer></script>
         <script src='Drag and Drop File Upload\1- My Images Tab.js' defer></script>
         <script src='NavbarTools\Duplication Bar.js' defer></script>
         
-        <script src='datahandling\ShapeMenu.js' defer></script>
-        <script src='datahandling\XY Converters.js' defer></script>
-        <script src='datahandling\zoom.js' defer></script>
+        <script src='1 - datahandling\ShapeMenu.js' defer></script>
+        <script src='1 - datahandling\XY Converters.js' defer></script>
+        <script src='1 - datahandling\zoom.js' defer></script>
         <script src='Object Definition\Components.js' defer></script>
         <script src='Object Definition\Object Definitions.js' defer></script>
         <script src='Drawing Shapes\Arrows\ArrowMath.js' defer></script>
         <script src='Drawing Shapes\Arrows\arrowObject.js' defer></script>
+        <script src='Drawing Shapes\Arrows\ArrowHead.js' defer></script>
+        
         <script src='Drawing Shapes\Arrows\arrowWidthSlider.js' defer></script>
         <script src='Drawing Shapes\DragShapes.js' defer></script>
         <script src='Drawing Shapes\Draw On Canvas.js' defer></script>
@@ -119,7 +69,7 @@
         <script src='Save and Load\storedfiles.js' defer></script>
         <script src='TextBoxes\textboxes.js' defer></script>
         <script src='TextBoxes\copyTextBox.js' defer></script>
-   
+
         <script src='Youtube\1 - YouTube.js' defer></script>
         <script src='Youtube\ClipLoader.js' defer></script>
         <script src='Youtube\VideoOOP.js' defer></script>
@@ -129,7 +79,44 @@
         <script src='Drag and Drop File Upload\buildDropBox.js' defer></script>
         
         <script src='test.js' defer></script>
-        <script src='datahandling\Screenload.js' defer></script>
-        
+        <script src='1 - datahandling\Screenload.js' defer></script>
+    </head>
+
+
+    <body>
+        <!-- Canvas Space -->
+        <section class='wrapper' id='container'>
+            <canvas id='canvas'></canvas>
+            <svg id='ArrowHead' transform="translate(50%, 50%) scale(1)" class='ArrowHead pointerEventsNone' width="30" height="30">
+                <path d="M5 25 L15 15 L25 25" fill='none' transform='rotate(30deg)' stroke='black'/>
+            </svg>
+            <canvas id='float over'></canvas> 
+        </section>
+
+        <!-- NavBar -->
+        <nav class='navbar' id='navbar'>
+            <ul id='navlist'>
+            </ul>
+        </nav>
+
+        <!-- bin and save -->
+        <i id='bin' class="fa fa-trash bin fa-2x" aria-hidden="true"></i>
+        <i id='save-btn' class="fa fa-save save-btn fa-2x" aria-hidden="true">
+            <input id='save-infodump' type='text' ></input>
+        </i>
+
+        <!-- tiktok embed example -->
+        <!-- <blockquote id='tok' class="tiktok-embed" cite="https://www.tiktok.com/@jimsgroup/video/6974324211678465282" data-video-id="6974324211678465282" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@jimsgroup" href="https://www.tiktok.com/@jimsgroup">@jimsgroup</a> <p>How did Jim start Jim’s Mowing? <a title="jimsgroup" target="_blank" href="https://www.tiktok.com/tag/jimsgroup">#jimsgroup</a> <a title="story" target="_blank" href="https://www.tiktok.com/tag/story">#story</a> <a title="storytime" target="_blank" href="https://www.tiktok.com/tag/storytime">#storytime</a> <a title="comedy" target="_blank" href="https://www.tiktok.com/tag/comedy">#comedy</a> <a title="audiobook" target="_blank" href="https://www.tiktok.com/tag/audiobook">#audiobook</a> <a title="meme" target="_blank" href="https://www.tiktok.com/tag/meme">#meme</a> <a title="truestory" target="_blank" href="https://www.tiktok.com/tag/truestory">#truestory</a> <a title="jimsmowing" target="_blank" href="https://www.tiktok.com/tag/jimsmowing">#jimsmowing</a> <a title="origin" target="_blank" href="https://www.tiktok.com/tag/origin">#origin</a> <a title="laugh" target="_blank" href="https://www.tiktok.com/tag/laugh">#laugh</a> <a title="laughter" target="_blank" href="https://www.tiktok.com/tag/laughter">#laughter</a> <a title="brand" target="_blank" href="https://www.tiktok.com/tag/brand">#brand</a> <a title="icon" target="_blank" href="https://www.tiktok.com/tag/icon">#icon</a></p> <a target="_blank" title="♬ Living Room - Clutch" href="https://www.tiktok.com/music/Living-Room-6776548701574793218">♬ Living Room - Clutch</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script> -->
+    
     </body>
+
+    
+    <!-- JSX Substitutes -->
+    <div id='shapemMenuDiv'>
+        <ul id='menuList'>
+        </ul>
+    </div>
+    <svg id='textSquare' width="30" height="30">
+        <rect width="30" height="30" style="fill:rgba(255, 158, 158,0);stroke-width:0;stroke:rgb(0,0,0)" />
+    </svg>
 </html>

@@ -1,5 +1,5 @@
 function onFilesRecieved(){
-    navTabs["Images"].Title.click();
+    (navTabs["Images"].Title != openTab) ? navTabs["Images"].Title.click() :{};
     for(var i =0; i < inputElement.files.length; i++){ //needs a traditional for loop
         let thefile = inputElement.files[i]
         console.log(thefile)

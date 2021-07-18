@@ -17,14 +17,18 @@ function Arrow (start, target, image){
                 let [sx, sy] =convertFileXYintoCanvasXY (this.start.x, this.start.y)
                 let [fx, fy] =convertFileXYintoCanvasXY (this.target.x, this.target.y)
                 let [fw, fh] = convertFileWHintoCanvasWH(this.target.width, this.target.height);
+
                 let right = -1;if(fx<sx){right = 1};
                 let up = -1;if(fy<sy){up = 1};
                 let [r,u] = [1, 0];if((fx-sx)*right>(fy-sy)*up*this.target.aspect){[r,u]=[0,1]};
                 let finish = {x: fx+r*right*fw*0.4, y:fy+u*up*fh*0.4};
-                console.log(finish)
+                // redo this with turnary statements probably lol
+                // it determines where the arrow should point
+
+
     
     
-                drawArrowBetweenPoints(start, finish, c)
+                drawArrowBetweenPoints(start, finish, c, target)
             }else{
                 this.start.removeConnection({type:"Outgoing", to:target});
                 this.target.removeConnection({type:"Incoming", to:start});
