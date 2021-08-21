@@ -44,10 +44,7 @@ function init_uploadPanel(){
 
     function applyEvents_fileDrop(){
         fileDropZone.addEventListener("drop", (function(e){
-            console.log(e.dataTransfer.files);
-            if (e.dataTransfer.files.length) {
-            onFileDrop(e)
-            }
+            (e.dataTransfer.files.length)?onFileDrop(e):{};
             fileDropZone.classList.remove("drop-zone--over");
             e.preventDefault();
         }));
@@ -93,9 +90,6 @@ function init_uploadPanel(){
 }
 
 const uploadPanel = init_uploadPanel()
-
-
-
 
 
 

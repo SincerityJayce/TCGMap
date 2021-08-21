@@ -1,7 +1,6 @@
 var YTAPItag;
 var YTAPIfirstScriptTag;
 function invokeYoutubeApi(){
-    console.log('invoked');
     YTAPItag = document.createElement('script');
     YTAPItag.src = "HTTPS://www.youtube.com/player_api";
     YTAPIfirstScriptTag = document.getElementsByTagName('script')[0];

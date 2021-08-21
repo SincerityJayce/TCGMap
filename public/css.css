@@ -10,7 +10,9 @@
     cursor: none;
 }
 
-
+/* .pile .card{
+    position:;
+} */
 
 *{
     margin:0;
@@ -195,6 +197,33 @@ nav ul li a.openTab i{
 nav ul li a.openTab ~ ul{
     display: block;
 }
+
+#devtools{
+    position: absolute;
+    right: 0px;
+    bottom:  50%;
+    transform: translateY(50%);
+    padding-bottom: 22px;
+    padding: 25px;
+    color: #20202080;
+}
+
+#devViewScreen{
+    top:0;
+    right:70px;
+    position: fixed;
+    width: 15%;
+    height: 100%;
+    transition: box-shadow 500;
+    display: grid;
+    place-content: center;
+  }
+  #devViewScreen.show{
+    box-shadow: inset -50px 0px 200px 200px #b4c3e449;
+  }
+  #devViewScreen btn{
+      border: 3px solid black;
+  }
 
 .bin{
     position: absolute;

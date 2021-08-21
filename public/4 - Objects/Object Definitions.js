@@ -1,4 +1,3 @@
-
 var allCreatedObjects = [];
 var textBoxBeingEdited;
 
@@ -154,6 +153,10 @@ function BasicShape(model){
     this.removeConnection = function removeConnection(connection){
         delete this.connections[connection]
     }
+
+
+
+
 
 
     allCreatedObjects.push(this);

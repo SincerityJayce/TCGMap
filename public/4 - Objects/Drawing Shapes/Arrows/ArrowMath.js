@@ -61,7 +61,7 @@ function drawArrowBetweenPoints(start, finish, context, target){
     let deg = Math.atan2(opposite, adjacent);
     let height = Math.sqrt(opposite*opposite+adjacent*adjacent);
     drawImageRot(start.x, start.y, defaultArrowWidth/viewScale, height, deg, context);
-    applySVGArrowHead(target, deg)
+    // applySVGArrowHead(target, deg)
 
 }
 

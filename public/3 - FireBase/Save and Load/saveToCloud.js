@@ -13,7 +13,7 @@ function loadProject(prjoectId){
 function loadFirestoredProject(projectRef){
     projectRef.get().then(function(data){
         console.log(data.data().json)
-        generateObjects(JSON.parse(data.data().json))
+        loadObjects(JSON.parse(data.data().json))
     })
 }
 
@@ -78,7 +78,7 @@ function buildMapSave(doc){
         drawnScreenShapes.forEach(deleteDrawnShape);
         projectId = doc.id;
         let mapJSON = doc.data().json
-        generateObjects(JSON.parse(mapJSON));
+        loadObjects(JSON.parse(mapJSON));
         loaded=true;
     })
     navTabs["My Maps"].List.appendChild(map)
