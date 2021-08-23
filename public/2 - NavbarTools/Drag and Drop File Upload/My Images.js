@@ -1,3 +1,11 @@
+// Script Order 0031:
+
+new NavElement({Title:"Images"})
+
+
+
+
+
 function onFilesRecieved(){
     (navTabs["Images"].Title != openTab) ? navTabs["Images"].Title.click() :{};
     for(var i =0; i < inputElement.files.length; i++){ //needs a traditional for loop

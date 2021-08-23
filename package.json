@@ -11,8 +11,20 @@
   "dependencies": {
     "browser-sync": "^2.27.4",
     "dependencies": "0.0.1",
+    "firebase": "^8.10.0",
+    "firebase-admin": "^9.11.1",
+    "firebase-auth": "^0.1.2",
+    "firebase-functions": "^3.15.4",
     "gulp": "^4.0.2",
     "gulp-cli": "^2.3.0",
     "gulp-sass": "^5.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SincerityJayce/TCGMap.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SincerityJayce/TCGMap/issues"
+  },
+  "homepage": "https://github.com/SincerityJayce/TCGMap#readme"
 }

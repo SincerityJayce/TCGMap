@@ -1,3 +1,7 @@
+// Script Order 0040:
+
+
+
 const textBoxShelf = document.getElementById('Text Box Shelf');
 
 function init_TextBoxes(){
