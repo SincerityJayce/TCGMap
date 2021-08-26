@@ -62,12 +62,12 @@ canvas {
 
 #container {
     margin-left:0;
-    position: absolute;
+    /* position: absolute; */
     overflow: hidden;
     /* background-color: rgba(29, 29, 78, 0.452); */
 }
 
-#navbar {
+/* #navbar {
     text-align: right;
 
     position: absolute;
@@ -75,18 +75,18 @@ canvas {
     max-height: 100%;
     width: 12vw;
     background: #1b1b1b;
-    /* overflow-y: scroll; */
+    overflow-y: scroll;
     overflow-x: hidden;
-}
+} 
 
 #Sidebar {
     position: absolute;
-    /* min-height: 100%; */
+    min-height: 100%;
     width: 80px;
     background: #e3e3e3;
     margin:0px;
     padding: 0px;
-}
+}*/
 
 
 #container .drawnshape{

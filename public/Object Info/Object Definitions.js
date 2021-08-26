@@ -1,26 +1,5 @@
 // Script Order 0032:
 
-
-var allCreatedObjects = [];
-var textBoxBeingEdited;
-
-
-function createUUID() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-    return v.toString(16);});}
-var projectId = createUUID();
-
-var lastId = 0001;
-function createShapeId(){
-    id = projectId + lastId;lastId += 1;
-    return id;}
-/////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////
-
-
-var lastShape;
 function BasicShape(model){
     var thisShape = this;
 
@@ -42,7 +21,7 @@ function BasicShape(model){
         this.shapeDiv = makeShapeDiv();
         this.clickDiv = makeClickDiv();
         this.shapeDiv.appendChild(this.clickDiv);
-        this.shape =makeShape(this.src);
+        this.shape = makeShape(this.src);
         this.clickDiv.appendChild(this.shape);
 
         this.divStyleMath;
@@ -71,12 +50,6 @@ function BasicShape(model){
 
     InitShapeFunctions(thisShape)
     container.appendChild(thisShape.shapeDiv);
-
-
-
-
-
-
 
 
     // Events
@@ -141,13 +114,6 @@ function BasicShape(model){
     //
 
 
-
-
-
-
-
-
-
     // basically unused right now
     this.connections = {};
     this.addConnection = function addConnection(connection){
@@ -156,11 +122,6 @@ function BasicShape(model){
     this.removeConnection = function removeConnection(connection){
         delete this.connections[connection]
     }
-
-
-
-
-
 
     allCreatedObjects.push(this);
     model.onbuild ? model.onbuild(thisShape) : {} ;

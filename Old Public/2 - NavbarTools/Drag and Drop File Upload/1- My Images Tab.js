@@ -1,2 +1,0 @@
-new NavElement({Title:"Images"})
-
