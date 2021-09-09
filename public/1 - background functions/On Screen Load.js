@@ -9,11 +9,8 @@ function resize(){
     canvasAreaW = (window.innerWidth) * scale;
     canvasAreaH = (window.innerHeight - 1) * scale;
     container.style = 'width:'+canvasAreaW/scale+';height:'+canvasAreaH/scale + ';';
-    display.width = canvasAreaW;
-    display.height = canvasAreaH;
     canvas.width = canvasAreaW;
     canvas.height = canvasAreaH;     
-    display.style = "width:" + canvasAreaW/scale + "px;height:" + canvasAreaH/scale + "px;";
     canvas.style = "width:" + canvasAreaW/scale + "px;height:" + canvasAreaH/scale + "px;";
     drawCanvas();
 }
@@ -82,7 +79,6 @@ function calculateAspectOf(image){
 // Onload page
 
 resize();
-display.remove();
 loadAllSidebarTools();
 invokeYoutubeApi();
 textBoxToolsLoad();

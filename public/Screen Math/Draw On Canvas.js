@@ -3,9 +3,7 @@
 
 const canvas = document.getElementById('canvas');
 const container = document.getElementById('container');
-const display = document.getElementById('float over');
 var c = canvas.getContext('2d');
-var cDisplay = display.getContext('2d');
 var canvasAreaW = undefined;
 var canvasAreaH = undefined;
 var scale = 4; //resolution
@@ -61,11 +59,6 @@ function updateMouseDisplay(){
 
 
 function drawTheoreticalShapeOnMouseMove(event){
-    function drawTemporarily(thisShape) {
-        let [x, y] = convertFileXYintoCanvasXY(thisShape.x, thisShape.y);
-        let [w, h] = convertFileWHintoCanvasWH(thisShape.width, thisShape.height);
-        cDisplay.drawImage(thisShape.shape, x-w/2, y-h/2, w, h);
-    }   
     [theoreticalShape.x, theoreticalShape.y] = convertCanvasXYintoFileXY(mouseOnCanvas.canvasX, mouseOnCanvas.canvasY);
     drawShape(theoreticalShape);
 }

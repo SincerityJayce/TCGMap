@@ -12,7 +12,6 @@ function startArrow(shapeObj){
     iAmDrawingAnArrowNow = true;
     arrowObj = shapeObj;
     turnTheCanvasCursorInvisible();
-    display.classList.add('pointerEventsNone');                     
 }
 
 

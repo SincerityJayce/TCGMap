@@ -47,7 +47,6 @@ function selectActiveTool(event){
         activeTool = event.srcElement;
         console.log(activeTool)
         activeTool.classList.add('selectedTool');
-        addDisplayToDOM();
         turnTheCanvasCursorInvisible();
         doOneThing()
         unstyleAllUnactiveTools();
@@ -63,12 +62,8 @@ function selectActiveTool(event){
 
 
 
-function addDisplayToDOM(){
-    container.appendChild(display);
-    display.classList.remove('pointerEventsNone')
-}
+
 function turnTheCanvasCursorInvisible(){
-    display.classList.add('cursorNone');
     canvas.classList.add('cursorNone');
 }
 
@@ -82,21 +77,13 @@ function unselectAllTools(){
     activeTool = undefined;
 
     unstyleAllTools();
-    clearMouseDisplay();
     turnTheCanvasCursorVisible();
-    removeDisplayFromDOM();
     theoreticalShape ? deleteDrawnShape(theoreticalShape) :{};
     theoreticalShape = undefined;
 }
 
 
-function clearMouseDisplay(){
-    cDisplay.clearRect(0, 0, canvasAreaW, canvasAreaH);
-}
+
 function turnTheCanvasCursorVisible(){
-    display.classList.remove('cursorNone');
-    canvas.classList.remove('cursorNone'); //restores cursor
-}
-function removeDisplayFromDOM(){
-    display.remove();
+    canvas.classList.remove('cursorNone');
 }
