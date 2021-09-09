@@ -24,13 +24,13 @@ function convertFileWHintoCanvasWH(w, h){
 
 function convertFileXYintoScreenXY(x, y){
     [x, y] = convertFileXYintoCanvasXY(x, y);
-    [x,y] = [(x)*scale/viewScale, y*scale/viewScale];
+    [x,y] = [x/scale, y/scale];
     return [x, y];
 }
 
 function convertFileWHintoScreenWH(w, h){
     [w, h] = convertFileWHintoCanvasWH(w, h);
-    [w, h] = [w*scale, h*scale];
+    [w, h] = [w/scale, h/scale];
     return [w, h]
 }
 
@@ -68,3 +68,17 @@ function convertMinSecStringToSeconds(string){
         return 0
     }
 }
+
+
+
+var mouseOnCanvas = {x:undefined, y:undefined,
+    canvasX:undefined, canvasY:undefined,
+    fileX:undefined, fileY:undefined}
+
+function setMouseXY(event){
+    mouseOnCanvas.x = event.x - canvas.getBoundingClientRect().left;
+    mouseOnCanvas.y = event.y - canvas.getBoundingClientRect().top;
+    [mouseOnCanvas.canvasX, mouseOnCanvas.canvasY] = [mouseOnCanvas.x *scale, mouseOnCanvas.y * scale];
+    [mouseOnCanvas.fileX, mouseOnCanvas.fileY] = convertCanvasXYintoFileXY(mouseOnCanvas.canvasX, mouseOnCanvas.canvasY);
+}
+// ! Draws the selected tool at the current mouse position

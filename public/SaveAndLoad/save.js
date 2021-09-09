@@ -68,9 +68,9 @@ function makeArrowsSaveable(arrows){
 }
 function getTextFrom(shape){
     if (shape.textBox){
-        console.log(shape.textBox)
+        console.log('innerHTML of text box',shape.textBox.innerHTML)
         console.log(shape.textBox.textContent)
-        return shape.textBox.textContent
+        return shape.textBox.innerHTML
     }
 }
 

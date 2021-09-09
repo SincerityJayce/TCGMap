@@ -102,10 +102,10 @@ function menuLogic(){
         cs.loadEvent = function(){
             if(thisShapeHasAVisibleTextbox(contextShape)){
                 toggleOn = false;
-                title.innerHTML = "Text-ThumbnailOff"
+                title.innerHTML = "Text-Thumbnail"
             }else{
                 toggleOn = true;
-                title.innerHTML = "Text-ThumbnailOn";
+                title.innerHTML = "Text-Thumbnail";
             }
         }
 
@@ -278,6 +278,7 @@ function openShapeMenu(e){
 
     function showRightClickMenu(){
         if(notFullScreen){
+            tutorialStepCompleted(9)
             // container.appendChild(shapemMenuDiv);
             contextShape.shapeDiv.appendChild(shapemMenuDiv);
         } else{

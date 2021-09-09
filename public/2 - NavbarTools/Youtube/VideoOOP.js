@@ -1,6 +1,7 @@
 // Script Order 0054:
 
 
+
 function determineAndSetupYoutubeFor(thisShape){
     thisShape.YTid = determineYouTubeID(thisShape.src)?.[0].replace("img.youtube.com/vi/", "");
     if(thisShape.YTid){
@@ -34,6 +35,7 @@ function createVideoPlayer(thisShape){
                 thisShape.videoFinish = thisShape.vidPlayer.getDuration();
                 thisShape.shape.remove();
                 thisShape.imageOn = false;
+                thisShape.vidPlayer.playVideo()
             },
 
             "onStateChange": function togglePlayStatus(){
@@ -52,6 +54,9 @@ function createVideoPlayer(thisShape){
     thisShape.vidDiv.height= "100%";
     thisShape.vidDiv.width = "100%";
     thisShape.vidDiv.classList.add('pointerEventsNone');
+    
+
+
     thisShape.clickDiv.addEventListener('click', function(){
         if(purposeOfClick.isToOperate()){
             if(thisTextBoxIsntBeingEdited(thisShape)){

@@ -1,0 +1,29 @@
+.arrow_pinDiv {
+  height: 0px;
+  width: 0px;
+  position: absolute;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+
+}
+
+.arrow_imgDiv{
+  transform:translate(-50%, -50%) ;
+  display: grid;
+  place-items: center;
+  height:100px;
+  /* width:300px; */
+  background:Black;
+}
+
+.arrow_line{
+  display:none;
+  /* transform: scale(0.5, 3); */
+
+    /* width: 100%; */
+    /* height: 100%; */
+}
+
+
+

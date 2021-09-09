@@ -19,9 +19,11 @@
     padding:0;
     user-select: none;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: open sans, sans-serif;
 }
 body {
+    background-color: rgba(112,134,158,255);
+
     margin: 0px;
     padding: 0px;
 }
@@ -31,15 +33,14 @@ body {
 
 
 
-#profilepic{
+/* #profilepic{
     position: absolute;
     top: 0;
     right: 0;
     border-radius: 50%;
-    /* overflow: hidden; */
     opacity: 30%;
 
-}
+} */
 
 .unselectedTool, .zoom {
     padding: 5px;
@@ -56,13 +57,18 @@ body {
 
 canvas {
     margin-left:0;
-    position: absolute;
-    background: #00000000;
+    position: fixed;
+    /* z-index: -40; */
 }
+/* #canvas {
+
+} */
 
 #container {
     margin-left:0;
-    /* position: absolute; */
+    top:0;
+    position: fixed;
+    height: 100%;
     overflow: hidden;
     /* background-color: rgba(29, 29, 78, 0.452); */
 }
@@ -97,8 +103,10 @@ canvas {
 }
 #container .drawnshape:hover,
 .drawnshape.contextShape{
+    z-index: 10;
     box-shadow: 0px 0px 40px -10px, inset white 0px 0px 23px -8px;
     transition: box-shadow 300ms;
+    overflow-y: visible;
 }
 img.drawnshape{
     position: absolute;
@@ -197,6 +205,7 @@ nav ul li a.openTab i{
 nav ul li a.openTab ~ ul{
     display: block;
 }
+
 
 #devtools{
     position: absolute;
@@ -308,11 +317,12 @@ nav ul li a.openTab ~ ul{
 }
 .textbox .text{
     width: 100%;
+    overflow:clip;
 }
 .resizable{
     resize: both;
     /* background: rgba(43, 107, 107, 0.925); */
-    border-radius:6px;
+    /* border-radius:6px; */
 }
 div.resizable div, div.resizable div div{
     width: 100%;
@@ -338,7 +348,7 @@ div.resizable div, div.resizable div div{
     background-color: #00000000;
     border: none;
     border-bottom: 2px solid #3a3a3a;
-    height: 30px;
+    height: 20px;
 }
 .input-holder input:focus{
     border-bottom: 2px solid #b4c3e4;
@@ -360,7 +370,7 @@ div.resizable div, div.resizable div div{
 } */
 #shapemMenuDiv ul .fancyInputOuter{
     position: relative;
-    height: 30px;
+    height: 20px;
 }
 
 #shapemMenuDiv ul .fancyInputOuter input{
@@ -397,13 +407,13 @@ div.resizable div, div.resizable div div{
     position: absolute;
     background-color: #1b1b1b00;
     color: white;
-    width: 100px;
+    max-width: 110px;
     
 }
 #shapemMenuDiv ul{
     background-color: #1b1b1bd2;
     border-bottom: 3px solid #b4c3e4;
-    line-height: 35px;
+    line-height: 20px;
 }
 #shapemMenuDiv ul{
     list-style: none;
@@ -418,7 +428,7 @@ div.resizable div, div.resizable div div{
 #shapemMenuDiv ul li a{
     text-align: justify;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 12px;
     padding-right: 20px;
     font-weight: 500;
     display: block;

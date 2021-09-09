@@ -16,16 +16,36 @@ function onYouTubePlayerAPIReady() {
     exampleVideoTool();
 }
 
-function init_Youtube(){
-    new NavElement({Title:"Youtube"});
 
-    function ytPasteEvent(e){
-        e.preventDefault();
-        e.target.value = "";
-        buildYTToolImage(e.clipboardData.getData('text'));
+
+
+function init_Youtube(){
+
+    function createYoutubeOpenTab(){
+        let div = make('div')
+        div.classList.add('ToolSpace-Youtube', 'ToolSpace')
+
+            let a = document.createElement('a')
+            a.classList.add('toolPrompt')
+            a.innerHTML = 'Paste Youtube video links here to get them as sticky notes.'
+            div.appendChild(a)
+
+            function ytPasteEvent(e){
+                e.preventDefault();
+                e.target.value = "";
+                buildYTToolImage(e.clipboardData.getData('text'));
+                a.classList.add('dimmed')
+            }
+            div.appendChild(makePasteBox(ytPasteEvent, "Paste here..."))
+
+        return div
     }
 
-    navTabs["Youtube"].List.appendChild(makePasteBox(ytPasteEvent, "Paste Youtube link here..."))
+
+
+
+
+    new NavElement({Title:"Youtube", Icon:document.getElementById('icon-Youtube'), OpenPannel:createYoutubeOpenTab()});
 }
 
 

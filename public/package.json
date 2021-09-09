@@ -1,7 +1,6 @@
 {
   "name": "public",
   "version": "1.0.0",
-  "description": "",
   "main": "chat app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dependencies": "0.0.1"
-  }
+    "dependencies": "0.0.1",
+    "link-preview-generator": "^1.0.6"
+  },
+  "description": ""
 }

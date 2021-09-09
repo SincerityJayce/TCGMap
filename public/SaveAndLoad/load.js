@@ -22,7 +22,7 @@ function loadObjects(saveFile){ //from code
 
 function generateObject(ShapeBlueprint){
     function loadTextBox(box, txt){
-        box.textBox? box.textBox.textContent = txt:{};
+        box.textBox? box.textBox.innerHTML = txt.replace(/(?:\r\n|\r|\n)/g, '<br>'):{};
     }
     console.log('generating shape', ShapeBlueprint)
     importedShape = (new BasicShape(ShapeBlueprint));
@@ -35,7 +35,6 @@ function generateObject(ShapeBlueprint){
 }
 
 function initialiseObjectsArrows(shape){
-    console.log('arrows in text form', shape.arrowcodes)
     for(var i=0; i<shape.arrowcodes.length; i++){
         console.log('initialising arrow pointing at this id', shape.arrowcodes[i])
         if(shape.arrowcodes[i]){

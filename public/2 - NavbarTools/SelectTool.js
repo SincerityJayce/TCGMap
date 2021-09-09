@@ -20,12 +20,13 @@ function selectActiveTool(event){
         console.log('theorising')
         let [x, y] = convertCanvasXYintoFileXY(mouseOnCanvas.canvasX, mouseOnCanvas.canvasY);
     
-        let theory = (activeTool.bluePrint  || {
+        let theory = {...{
             src: activeTool.src,
             onbuild: activeTool.onbuild,
             x,
             y
-        });
+
+        }, ...activeTool.bluePrint};
     
         theoreticalShape = new BasicShape(theory);
         

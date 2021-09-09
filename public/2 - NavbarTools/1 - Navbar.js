@@ -1,71 +1,87 @@
 // Script Order 0031:
 
-const navlist = document.getElementById('navlist');
+const navlist = document.getElementById('navlist'),
+    openTabSpace = document.getElementById('toolSpace');
+    
+var openTab,navTabs = {};
 
-// const ytTab = document.getElementById('YouTube-Tab');
+
+const exampleBlueprint = {
+    Title: 'Example',
+    Icon: document.createElement('svg'),
+    OpenPannel: document.createElement('div')
+}
 
 function NavElement(blueprint){
     let thisTab = this
 
-    const li = make('li');
+    const btn = make('div');
+        btn.classList.add('NavButton')
 
-        const title = make('a')
+        blueprint.Icon && btn.appendChild(blueprint.Icon);
+
+        const title = make('div');
         title.id = "navTitle_" + blueprint.Title;
         title.innerHTML = blueprint.Title;
-        li.appendChild(title)
+        btn.appendChild(title)
 
-            const dropDownArrow = make('i');
-            (['fa', 'fa-caret-down']).forEach((css) => {
-                dropDownArrow.classList.add(css);
-            });
-            title.appendChild(dropDownArrow)
-        
-        const list = make('ul')
-        
-        li.appendChild(list);
 
-    function manageOpenTab(){
+    btn.addEventListener('click', function(){
 
-        function forEveryNavTab(func){
-            return Object.values(navTabs).forEach(func)
-        }
-        
-        function closeAppropriateTabs(tab){
-            (tab.Title != openTab) ? tab.Title.classList.remove('openTab') : tab.Title.classList.add('openTab')
+        function showToolTab(show = true){
+            show?openTabSpace.style.display = 'block':openTabSpace.style.display = 'none';
         }
 
-        forEveryNavTab(closeAppropriateTabs)
-    }
-    title.addEventListener('click', function(){
-        (openTab == title) ? openTab = undefined : openTab = title;
-        console.log(openTab)
+
+        const offAllTabs =()=>{openTab = undefined;showToolTab(false)},
+            setTab =()=>{openTab = title;showToolTab()}
+        (openTab == title) ? offAllTabs() : setTab();
         manageOpenTab()
     })
 
-    navlist.appendChild(li)
+    navlist.appendChild(btn)
 
 
     this.Title = title;
-    this.List = list;
-    this.Parent = li
+    this.Toolspace = blueprint.OpenPannel || document.createElement('div');
+    this.Parent = btn
     navTabs[blueprint.Title] = this
     this.uninstall = function(){
         li.remove();
     }
+    return this
 }
-var openTab;
-var navTabs = {}
 
 
 
 function makePasteBox(pasteFunc, placeholder){
     let input = make('input')
     input.type = "text";
+    input.classList.add('pasteBox')
     input.autocomplete = 'off';
     input.addEventListener('paste', pasteFunc)
     input.placeholder=placeholder
     
     return input
-  }
+}
 
 
+function forEveryNavTab(func){
+    return Object.values(navTabs).forEach(func)
+}
+
+function manageOpenTab(){        
+    tutorialStepCompleted(2)
+    tutorialStepCompleted(1)
+        
+    function closeAppropriateTabs(tab){
+        const closeIt = ()=>{tab.Title.classList.remove('openTab');tab.Toolspace?.remove()},
+            openIt = ()=>{tab.Title.classList.add('openTab'); openTabSpace.appendChild(tab.Toolspace)}
+
+        (tab.Title != openTab) ? closeIt() : openIt();
+        
+    }
+
+
+    forEveryNavTab(closeAppropriateTabs)
+}

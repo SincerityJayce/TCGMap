@@ -16,11 +16,15 @@ const savedMaps = firestore.collection('SavedMaps');
 //     return pp
 // }
 
-var profilePic = (() => {
-    let pp = make('img')
-    pp.style.borderRadius = "50%";
-    return pp
-})()
+// var profilePic = (() => {
+//     let pp = make('img')
+//     pp.style.borderRadius = "50%";
+//     return pp
+// })()
+
+const profilePic=document.getElementById('profilePic');
+profilePic.classList.add("hidden");
+
 var signInButton;
 function signInOrOut(){
     function signInWithGoogle(){
@@ -48,19 +52,22 @@ function signInOrOut(){
 function checkCurrentUser(){
 
     function onSignOut(){
-        signInButton.innerText = "Sign In With Google";
-        profilePic.remove();
+        signInButton.innerHTML = "Sign In With Google";
+        profilePic.classList.add("hidden");
+
     }
 
     function onSignIn(){
         const showProfilePic= () => {
             let {photoURL, uid} = auth.currentUser
             profilePic.src = photoURL;
-            signInButton.appendChild(profilePic);
+            profilePic.classList.remove('hidden')
         }
 
         signInButton.innerText = "Sign Out"
         showProfilePic()
+        getMyMaps()
+
     }
 
 
@@ -73,17 +80,12 @@ function checkCurrentUser(){
 
 
 function SignIn(){
-    const btn = make('li');
-        signInButton = btn;
-        btn.style.backgroundColor = "#b4c3e4";
-        btn.style.border = "none";
-        btn.style.borderRadius = "3px";
-        btn.style.width = "100%";
-        btn.style.textAlign = "center";
+    const btn = document.getElementById('signIn-btn')
         btn.addEventListener('click', signInOrOut);
         btn.innerText = "Sign In With Google"
     return btn
-} prependChildToElement(new SignIn(), document.getElementById('navlist'));
+} 
+signInButton = SignIn() // this is done really weirdly, fix it later
 
 auth.onAuthStateChanged(checkCurrentUser);
 

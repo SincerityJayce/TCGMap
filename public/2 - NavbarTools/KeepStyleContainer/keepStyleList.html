@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="keepStyleList.css" />
+    <script src="keepStyleList.js"></script>
+
+  </head>
+
+  <body>
+    <div
+      id="thediv"
+      style="
+        width: 50%;
+        resize: horizontal;
+        max-height: 80%;
+        background-color: cyan;
+        overflow-y: scroll;
+      "
+    ></div>
+  </body>
+  <script defer>
+    const card = "https://storage.googleapis.com/ffdecks-card-images/067.jpg",
+      moon =
+        "http://www.slate.com/content/dam/slate/blogs/bad_astronomy/2014/06/Ten%20Years%20at%20Saturn/cassini_mimas.jpg.CROP.original-original.jpg",
+      bris =
+        "https://media.istockphoto.com/photos/brisbane-skyline-night-panorama-australia-picture-id1200828753?s=612x612";
+
+    function generateImages() {
+      const srcList = [
+          card,
+          moon,
+          bris,
+          moon,
+          card,
+          card,
+          bris,
+          bris,
+          moon,
+          moon,
+        ],
+        generate = (src) => {
+          let img = document.createElement("img");
+          img.src = src;
+          img.classList.add("note");
+          imgList.push(img);
+        };
+      srcList.forEach(generate);
+    }
+
+    var imgList = [];
+
+    generateImages();
+    let div = document.createElement("div");
+    div.innerHTML =
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultrices at nisl a egestas. Mauris feugiat neque eu tortor posuere aliquet ac eget lacus. Nunc ac consequat est. Nulla sollicitudin purus sed orci imperdiet, non tristique purus dapibus. Fusce dictum luctus vestibulum. Duis tincidunt placerat egestas. Cras vitae convallis dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus pretium rutrum sem sit amet blandit. Praesent pretium justo lacinia, pharetra orci vitae, ullamcorper nisi. Ut iaculis mi orci, sed suscipit dui maximus in. Vestibulum vitae ultricies elit. Maecenas in rhoncus odio. Curabitur tempus felis ut pellentesque fermentum. Duis tristique erat urna, eu tincidunt tortor molestie sed.";
+    imgList[4] = div;
+    generateImages();
+
+    var keepSpace = new KeepStyleDiv();
+    keepSpace.setColumns(3);
+    keepSpace.addItems(imgList);
+    document.body.appendChild(keepSpace.div);
+  </script>
+</html>

@@ -22,12 +22,16 @@ function makeShapeDiv(){
     sd.classList.add('drawnshape');
     sd.style.position = 'fixed';
     sd.style.overflow = 'hidden';
+
+    // sd.style.paddingRight = '1px';
+
     return sd
 }
 
 function makeClickDiv(){
     let sd = document.createElement('div')
     sd.classList.add('clickdiv');
+    
     return sd
 }
 
@@ -37,28 +41,37 @@ bin.addEventListener('mouseup',
     function(){
         if (shapeBeingDragged){
             deleteDrawnShape(shapeBeingDragged);
+            tutorialStepCompleted(8)
+
 
         }
         if (theoreticalShape){
             deleteDrawnShape(theoreticalShape)
         }
         if (activeTool){
-            if(activeTool.parentNode == (navTabs["Youtube"].List || navTabs['FFDecks'].List)){
+            // delete bin deletable object
+            if(activeTool.parentNode == (navTabs["Youtube"].Toolspace || navTabs['FFDecks'].Toolspace)){
                 activeTool.remove();
                 delete activeTool
+                tutorialStepCompleted(10)
+
             }
             unselectAllTools()
         }
     })
 
 
-function deleteDrawnShape(thisShape){
+function deleteDrawnShape(thisShape){           
     drawnScreenShapes = drawnScreenShapes.filter(
         function(ele){return ele != thisShape;})
-        
+
+    thisShape.arrows.forEach((arrow)=>{
+        console.log('this was an arrow')
+        delete arrow.parts.pin.remove()
+    })
+    thisShape.shapeDiv?.remove()
     thisShape.shape?.remove();
     thisShape.alive = false;
-    thisShape.shapeDiv.remove()
     playerIsNotPlaying(thisShape);
     delete thisShape.shape;
     delete thisShape.shapeDiv;
@@ -85,7 +98,7 @@ function idTagShape(thisShape){
 
 function InitShapeFunctions(thisShape){
 
-    if(thisShape.src.includes('images/box.png')){
+    if(thisShape.src?.includes('images/box.png')){
         thisShape.shapeFunctions['textbox'] = true;
         thisShape.imageOn = false;
     }//placeholder, move to something more sensible

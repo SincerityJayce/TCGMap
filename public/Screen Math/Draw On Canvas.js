@@ -26,9 +26,9 @@ window.addEventListener('mousemove',
         if (activeTool != undefined){ //if there is an active mouse tool
             requestAnimationFrame(updateMouseDisplay);
         }
-       
         if (iAmDrawingAnArrowNow){
-            requestAnimationFrame(arrowMath)
+            console.log()
+            requestAnimationFrame(drawTempArrow)
         }
     })
 
@@ -37,21 +37,7 @@ var theoreticalShape = undefined; //paintbrush
 
 var drawMouse = true;
 
-var mouseOnCanvas = {x:undefined, y:undefined,
-    canvasX:undefined, canvasY:undefined,
-    fileX:undefined, fileY:undefined}
 
-
-
-
-
-function setMouseXY(event){
-    mouseOnCanvas.x = event.x - canvas.getBoundingClientRect().left;
-    mouseOnCanvas.y = event.y - canvas.getBoundingClientRect().top;
-    [mouseOnCanvas.canvasX, mouseOnCanvas.canvasY] = [mouseOnCanvas.x *scale, mouseOnCanvas.y * scale];
-    [mouseOnCanvas.fileX, mouseOnCanvas.fileY] = convertCanvasXYintoFileXY(mouseOnCanvas.canvasX, mouseOnCanvas.canvasY);
-}
-// ! Draws the selected tool at the current mouse position
 
 
 

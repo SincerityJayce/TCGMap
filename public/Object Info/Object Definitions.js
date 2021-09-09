@@ -88,6 +88,7 @@ function BasicShape(model){
         this.arrows = [];
         this.clickDiv.addEventListener('mouseup',
         function(e){if(iAmDrawingAnArrowNow){
+                    tutorialStepCompleted(7)
                     thisShape.recieveArrow();
                     resize(); 
         }})

@@ -4,6 +4,7 @@
 
 function drawShape(thisShape){
 
+
     if(thisShape.neverDrawn){
         thisShape.neverDrawn = false
         thisShape.shape.download = "output.png";
@@ -39,13 +40,18 @@ function drawShape(thisShape){
         thisShape.shapeDiv.style.width = d.width;
     
     
-        if(thisShapeOnscreen(thisShape, x-w/2, y-h/2) || thisShape.neverDrawn){
+        if( thisShapeOnscreen(thisShape, x-w/2, y-h/2) || thisShape.neverDrawn){
             deployShape(thisShape)
         }else{
-            thisShape.shapeDiv.remove();
+
+            // // currently, this is disabled and broken, but it should probably disable videos that leave the screen at the very least #comeback
+            thisShape.vidPlayer?.pauseVideo();
+            
+            // thisShape.shapeDiv.remove();
             // thisShape.shape.remove();
             // thisShape.vidDiv?.remove();
             // thisShape.textBox?.remove();
+            
         }
     }
 
@@ -70,8 +76,6 @@ function drawShape(thisShape){
             if((thisShape.vidDiv?.parentNode !==thisShape.clickDiv)){
                 thisShape.clickDiv.appendChild(thisShape.vidDiv)
             }
-
-            let v = thisShape.vidPlayer.getIframe()
         }
 
 

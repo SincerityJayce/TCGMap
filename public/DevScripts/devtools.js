@@ -8,7 +8,7 @@ function init_DevTools(){
     devViewScreen.addEventListener('click', removeDevViewScreen)
 
     function showDevTools(){
-        document.body.appendChild(devViewScreen);
+        container.appendChild(devViewScreen);
         devViewScreen.classList.add('show');
     }
     function removeDevViewScreen(){
@@ -16,8 +16,9 @@ function init_DevTools(){
         devViewScreen.classList.remove('show')
     }
 
-    var newPile;
-    var newCard
+
+    devViewScreen.innerText = "X"
+
     devTools = [  
         {   title: 'copy map to clipboard',
             clickEvent: saveToClipBoard
@@ -32,34 +33,10 @@ function init_DevTools(){
                         console.log('Failed to read clipboard contents: ', err);
                     });
         }},
-        {   title: 'test card game',
-            clickEvent: function (){
-                testpile = {  "id":"ef1df5ee-6361-4bf1-8eaf-af99b968b4531",
-                                "x":2996,"y":764,
-                                "src":"http://localhost:5000/images/box.png",
-                                "w":3596,"h":1492,
-                                "text":""}
-                newPile = makeShapeAPile(generateObject(testpile))
-                newPile.info.screenPositions = calculateScreenPositions(newPile, 5)
-                testcard = {    "id":"1b5c60ff-26b5-4288-9481-0aeb2f8ec6e42",
-                                "x":2784,"y":1092,
-                                "src":"https://storage.googleapis.com/ffdecks-card-images/10-075C_eg.jpg"}
-                newCard = makeShapeACard(generateObject(testcard))
-
-                addCardToPile(newCard, newPile, 0)
-                renderCardsOf(newPile)
-            }},
-        {   title: 'renderpile',
-            clickEvent: function(){
-                renderCardsOf(newPile)
-                console.log(newCard.shapeDiv)
-            }
-        },
     ]
         .forEach(element => {
 
             let btn = document.createElement('btn')
-            console.log(btn)
             devViewScreen.appendChild(btn)
             btn.innerHTML = element.title
             btn.addEventListener('click', element.clickEvent)

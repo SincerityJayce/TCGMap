@@ -8,6 +8,8 @@ const arbitraryZoomRatio = 0.9;
 const zoomDrift = 2/(1-arbitraryZoomRatio);
 
 function scaleObjectWithWheel(e){
+    tutorialStepCompleted(5)
+
 
     function scaleUp(thisShape){
         thisShape.selfScale*= arbitraryZoomRatio;
@@ -55,6 +57,8 @@ var mouseYRatio = 1;
 function zoomCanvas(e){
 
     if (mouseDownOnCanvas && activeTool == undefined){
+        tutorialStepCompleted(6)
+
 
         mouseXratio = e.clientX*2/window.innerWidth;
         mouseYratio = e.clientY*2/window.innerHeight;

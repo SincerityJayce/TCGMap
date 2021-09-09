@@ -2,23 +2,33 @@
 
 
 
-const textBoxShelf = document.getElementById('Text Box Shelf');
-
 function init_TextBoxes(){
-    new NavElement({Title:'Text Boxes'})
 
+    function textBoxPannel(){
+        let div = document.createElement("div");
+        div.classList.add('ToolSpace-Youtube', 'ToolSpace');
 
+        let a = document.createElement('a')
+        a.classList.add('toolPrompt')
+        a.style.marginTop = '8px'
+        div.appendChild(a)
+        a.innerHTML = 'new Text Box +'
+        return div
+    }
 
-
-
-
-
-
-
-
+    new NavElement({Title:'Text', Icon:document.getElementById('icon-Text'), OpenPannel:textBoxPannel()})
 
 }
 init_TextBoxes()
+
+
+
+
+
+
+
+
+
 
 
 function buildTextBoxToolImage(path){
@@ -27,11 +37,14 @@ function buildTextBoxToolImage(path){
     img.id=img.src;
     img.draggable=false;
     img.extraFunction='textbox';
-    
+    img.bluePrint = {
+        "w":581.6186556927296,
+        "h":548.6968449931411,
+        "selfScale":0.7290000000000002}
 
     sizeToolImageToNav(img);
 
-    navTabs['Text Boxes'].List.appendChild(img);
+    navTabs['Text'].Toolspace.appendChild(img);
     listOfAllTools.push(img);
     img.addEventListener('mousedown', selectActiveTool); //event: Select Tool on tool Clicked
 }
@@ -46,7 +59,7 @@ function makeTextboxFor(thisShape){
     function makeTextbox(){
         let tb = document.createElement('div');
         tb.type='text'
-        tb.innerHTML = "DoubleClick to add text."
+        tb.innerHTML = "DoubleClick to add text.<div><br></div><div>Drag the bottom corner to resize &gt;&gt;</div>"
         tb.classList.add('textbox');
         tb.style.fontSize = thisShape.fontSize*thisShape.selfScale/viewScale
         tb.style.background = thisShape.textboxBackgroundColor
@@ -79,6 +92,7 @@ function showTextBox(thisShape){
 }
 
 function initialiseTextBoxOn(thisShape){
+    tutorialStepCompleted(3)
     if(this.textBox ==undefined){
         
         makeTextboxFor(thisShape);

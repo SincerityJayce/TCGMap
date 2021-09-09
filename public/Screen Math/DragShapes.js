@@ -8,6 +8,8 @@ var mouseStarteDraggingFrom;
 window.addEventListener('mousemove',
     function(e){
         if (shapeBeingDragged && notFullScreen){
+            tutorialStepCompleted(4)
+
             objectUnmoved = false;
             let [x,y] = [(mouseStarteDraggingFrom.x - mouseOnCanvas.x)*totalScale, (mouseStarteDraggingFrom.y - mouseOnCanvas.y)*totalScale]
             shapeBeingDragged.x = shapeBeingDragged.draggedfrom.x - (navFloat ? 0 : x);

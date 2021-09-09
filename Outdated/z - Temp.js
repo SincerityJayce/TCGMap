@@ -36,7 +36,7 @@ function buildCustomImageToolImage(src){
     img.draggable = false;
     sizeToolImageToNav(img);
   
-    navTabs["Images"].List.appendChild(img);
+    navTabs["Files"].List.appendChild(img);
     listOfAllTools.push(img);
     img.addEventListener('mousedown', selectActiveTool);
   }

@@ -13,7 +13,7 @@ function init_FFDecks(){
   }
   
   deckLinkBox = makePasteBox(onPasteDeckLink, "Paste ffdecks.com/deck link...")
-  navTabs['FFDecks'].List.appendChild(deckLinkBox)
+  navTabs['FFDecks'].Toolspace.appendChild(deckLinkBox)
 
 
 
@@ -38,7 +38,7 @@ function init_FFDecks(){
     }
   }
   
-  // const navTabs['FFDecks'].List = document.getElementById('FFdecks');
+  // const navTabs['FFDecks'].Toolspace = document.getElementById('FFdecks');
   
   function loadAllFFDecksTools(){
     for (var i = 0; i < ffImages.length; i++){
@@ -53,7 +53,7 @@ function init_FFDecks(){
     img.draggable = false;
     sizeToolImageToNav(img);
   
-    navTabs['FFDecks'].List.appendChild(img);
+    navTabs['FFDecks'].Toolspace.appendChild(img);
     listOfAllTools.push(img);
     img.addEventListener('mousedown', selectActiveTool); //event: Select Tool on tool Clicked
   }

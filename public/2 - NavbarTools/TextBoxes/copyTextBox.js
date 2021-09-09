@@ -7,9 +7,9 @@ const textSquare = document.getElementById('textSquare');
 function inti_textSquareDuplication(){
     textSquare.remove();
 
-    navTabs['Text Boxes'].Parent.addEventListener('mousemove', () => {navFloat = true})
-    navTabs['Text Boxes'].Parent.addEventListener('mouseleave', () => {navFloat = false})
-    navTabs['Text Boxes'].Parent.addEventListener('mouseup', () => {
+    navTabs['Text'].Parent.addEventListener('mousemove', () => {navFloat = true})
+    navTabs['Text'].Parent.addEventListener('mouseleave', () => {navFloat = false})
+    navTabs['Text'].Parent.addEventListener('mouseup', () => {
         shapeBeingDragged?.shapeFunctions['textbox'] ? copyTextBoxToNav(shapeBeingDragged) : {};
     })
 
@@ -47,7 +47,7 @@ function copyTextBoxToNav(shape){
     rect.classList.add('pointerEventsNone')
 
 
-    navTabs['Text Boxes'].List.appendChild(box);
+    navTabs['Text'].Toolspace.appendChild(box);
     listOfAllTools.push(box);
     box.addEventListener('mousedown', selectActiveTool); //event: Select Tool on tool Clicked
 }

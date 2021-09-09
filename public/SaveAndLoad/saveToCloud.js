@@ -58,22 +58,36 @@ function saveProjectToCloud(){
 
 
 function getMyMaps(){
-    return savedMaps.where("uid", "==", auth.currentUser.uid).get()
-    .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, " => ", doc.data());
-            buildMapSave(doc);
+    myMaps_loadingText.innerHTML = 'Loading...'
+    listOfMyMaps.innerHTML = '';
+    navTabs["My Maps"].Toolspace.appendChild(myMaps_loadingText)
+
+    
+    if(auth.currentUser){
+        return savedMaps.where("uid", "==", auth.currentUser.uid).get()
+        .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                // doc.data() is never undefined for query doc snapshots
+                console.log(doc.id, " => ", doc.data());
+                buildMapSave(doc);
+            });
+            myMaps_loadingText.remove()
+            
+        })
+        .catch((error) => {
+            console.log("Error getting documents: ", error);
         });
-        
-    })
-    .catch((error) => {
-        console.log("Error getting documents: ", error);
-    });
+    }else{
+        myMaps_loadingText.innerHTML = 'Log in to save and access your saved maps. >>> >>>'
+
+    }
+
 }
 
 function buildMapSave(doc){
     let map = new Image();
+    map.draggable = false;
+
     map.src="/images/map.png";
     sizeToolImageToNav(map);
     map.addEventListener('click',() => {
@@ -84,11 +98,19 @@ function buildMapSave(doc){
         loadObjects(JSON.parse(mapJSON));
         loaded=true;
     })
-    navTabs["My Maps"].List.appendChild(map)
+    listOfMyMaps.appendChild(map)
 }
 
+var myMaps_loadingText = (()=>{let myMaps_loadingText = make('a')
+myMaps_loadingText.classList.add('toolPrompt')
+return myMaps_loadingText;})()
 // loadfilestab = document.getElementById('LoadFile');
+
+
+
 navTabs["My Maps"].Title.addEventListener('click',function (){
-    navTabs["My Maps"].List.innerHTML = 'brb with your saves...';
+
+
+
     getMyMaps()
 })

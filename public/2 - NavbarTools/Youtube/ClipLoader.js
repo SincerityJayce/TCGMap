@@ -13,7 +13,7 @@ function buildYTToolImage(link){
 
     sizeToolImageToNav(img);
 
-    navTabs["Youtube"].List.appendChild(img);
+    navTabs["Youtube"].Toolspace.appendChild(img);
     listOfAllTools.push(img);
     img.addEventListener('mousedown', selectActiveTool); //event: Select Tool on tool Clicked
 }

@@ -7,7 +7,7 @@ var lastPlayedVideo;
 var noVidsPlaying = false;
 
 function playYT(tS){tS.vidPlayer.playVideo(); lastPlayedVideo = tS; noVidsPlaying = false}
-function pauseYT(tS){tS.vidPlayer.pauseVideo();}
+function pauseYT(tS){tS.vidPlayer.pauseVideo(); }
 
 var activeYTPlayers = [];
 
@@ -20,7 +20,6 @@ function playerIsNotPlaying(thisShape){
     function showThumbnail(thisShape){
         if (thisShape.shapeFunctions['textbox']){
             thisShape.clickDiv.appendChild(thisShape.textBox)
-            // thisShape.textBox.style.zIndex = "9999";
         }
     }
 
@@ -31,7 +30,6 @@ function playerIsNotPlaying(thisShape){
         noVidsPlaying = true;
         stopVideoInterval();}
     showThumbnail(thisShape)
-    // hideYTPlayer(thisShape)
 }
 function playerIsPlaying(thisShape){
     function startVideoInterval(){
@@ -41,7 +39,6 @@ function playerIsPlaying(thisShape){
     function hideThumbnail(thisShape){
         if (thisShape.textBox){
             thisShape.textBox.remove()
-            // thisShape.textBox.style.zIndex = "0";
         }
         
     }
@@ -49,7 +46,6 @@ function playerIsPlaying(thisShape){
     if(activeYTPlayers.length<1){
         startVideoInterval()}
     activeYTPlayers.push(thisShape);
-    // showYTPlayer(thisShape);
     hideThumbnail(thisShape)
 }
 

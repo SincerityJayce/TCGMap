@@ -1,0 +1,31 @@
+.keepStyleSpace {
+  display: flex;
+  width:100%;
+
+  /* align-items: stretch; */
+  content: flex-grow;
+  justify-content: center;
+}
+.keepStyleColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  height: fit-content;
+}
+
+/* sample styles */
+.keepStyleColumn div {
+  max-height: 20vw;
+  overflow: hidden;
+
+  background: -webkit-linear-gradient(#333 75%, #eee); /* W3C */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.keepStyleColumn * {
+  padding: 5px;
+  border-radius: 5px;
+}

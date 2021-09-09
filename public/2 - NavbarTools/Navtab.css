@@ -1,0 +1,96 @@
+.toolTab{
+  width:100%;
+  height:100%;
+}
+
+#toolSpaceOuter{
+  position:relative;
+  width:100%;
+  height:0;
+  overflow:visible;
+}
+
+#toolSpace{
+  display:none;
+  left:56;
+  position:absolute;
+  width:120px;
+  height:100vh;
+  background: #20202077;
+}
+
+
+.toolPrompt{
+  text-align: center;
+  font-size: 12px;
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  
+  margin: 5px;
+  transition:color 8s;
+  justify-content: center;
+}
+.toolPrompt.dimmed{
+  color: black;
+} 
+
+.pasteBox{
+  place-self: center;
+  width:80%;
+  background-color: rgba(114, 114, 114, 0.753);
+  border: 2px inset white;
+  border-radius: 1vmin;
+  margin-bottom: 13px;
+}
+.pasteBox::placeholder{
+  padding:3px;
+  color:rgba(0, 0, 0, 0.699);
+}
+
+.ToolSpace{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.listOfContent{
+  justify-content: right;
+
+}
+ul.listOfContent .toolPrompt{
+  border: 40px;
+  padding:20px;
+  place-self: center;
+}
+
+
+
+
+.scrollableToolSpace{
+  overflow-y: scroll;
+
+}
+
+
+/* SCROLLBAR for tab */
+.scrollableToolSpace::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+.scrollableToolSpace::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #20202000;
+  border-radius: 2px;
+}
+ 
+/* Handle */
+.scrollableToolSpace::-webkit-scrollbar-thumb {
+  background: #20202077; 
+  border-radius: 2px;
+}
+
+/* Handle on hover */
+.scrollableToolSpace::-webkit-scrollbar-thumb:hover {
+  background: #33525c; 
+}
